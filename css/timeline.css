@@ -1,0 +1,47 @@
+* {
+  /* outline: dashed orange; */
+}
+body {
+  background-color: #4c8dca;
+  max-width: auto;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2em;
+}
+
+nav {
+  display: inline-block;
+  width: 100%;
+  padding: 20px;
+
+}
+nav li {
+  display: inline-block;
+  margin: 0 20% 0 20%;
+  vertical-align: auto;
+}
+nav ul:first-child {
+  margin-left: 0;
+}
+nav ul:last-child {
+  margin-right: 0;
+}
+
+#timeline {
+
+}
+.days {
+  outline: solid orangered;
+  background-color: #f5f0f2;
+  max-width: 15%;
+  display: inline-block;
+}
+
+#editor {
+  max-width: 60%;
+  margin: auto;
+}
+.ql-toolbar.ql-snow {
+  max-width: 60%;
+  margin: auto;
+}
