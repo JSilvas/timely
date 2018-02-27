@@ -38,6 +38,7 @@ function loginHandler(event) {
       User.currentUser = User.allUsers[i];
       event.target.reset();
       saveCurrentUser();
+      goToTimeline();
       break;
     }
   }//if current user is not in array make a new user and add to User array.
@@ -46,6 +47,7 @@ function loginHandler(event) {
     event.target.reset();
     saveUserToLocal();
     saveCurrentUser();
+    goToTimeline();
   }
 }
 //checks local storage for users
@@ -59,12 +61,15 @@ function checkStoredUsers(){
   if(localStorage.currentUser){
     var currentUser = JSON.parse(localStorage.getItem('currentUser'));
     User.currentUser = currentUser;
+    // goToTimeline();
   }
 }
-
+function goToTimeline(){
+  window.location = 'timeline.html';
+}
 //********************* */
 //Clock function to keep track of time with date function.
-function startClock(){
+function navClock(){
   var today = new Date();
   var h = today.getHours();
   var m = today.getMinutes();
@@ -72,13 +77,13 @@ function startClock(){
   m = checkTime(m);
   s = checkTime(s);
   document.getElementById('clock').innerHTML = h + ':' + m + ':' + s;
-  var t = setTimeout(function(){ startClock();}, 500);
+  var t = setTimeout(function(){ navClock();}, 500);
 }
 function checkTime(i) {
   if (i < 10) {i = '0' + i;}// add zero in front of numbers < 10
   return i;
 }
-startClock();
+navClock();
 //*********************** */
 checkStoredUsers();
 loginForm.addEventListener('submit', loginHandler);
