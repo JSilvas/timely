@@ -1,18 +1,18 @@
 'use strict';
 //GLOBAL VARS
-var loginForm = document.getElementById('login-form');
+var loginForm = document.getElementById('login-form');//grabing form from index
 //create an array to hold all users
 User.allUsers = [];
 //create variable to hold current user
 User.currentUser = {name:'', password:''};
-//create user constructor
-checkStoredUsers();
+//user constructor
+
 function User(username, password){
   this.username = username;
   this.password = password;
   User.allUsers.push(this);
 }
-loginForm.addEventListener('submit', loginHandler);
+
 
 function saveUserToLocal(){
   localStorage.setItem('allUsers', JSON.stringify(User.allUsers));
@@ -29,12 +29,18 @@ function loginHandler(event) {
   User.currentUser.name = name.toLowerCase();
   //check if current user is in array of all users
   for(var i = 0; i < User.allUsers.length; i++){
+    if(User.allUsers[i].username === name.toLowerCase() && User.allUsers[i].password !== password){
+      alert('The Password does not match with UserName');
+      event.target.reset();
+      break;
+    }
     if(User.allUsers[i].username === name.toLowerCase() && User.allUsers[i].password === password){
       User.currentUser = User.allUsers[i];
+      event.target.reset();
       saveCurrentUser();
       break;
     }
-  }
+  }//if current user is not in array make a new user and add to User array.
   if( i === User.allUsers.length){
     new User(name.toLowerCase(), password);
     event.target.reset();
@@ -42,6 +48,7 @@ function loginHandler(event) {
     saveCurrentUser();
   }
 }
+//checks local storage for users
 function checkStoredUsers(){
   if(localStorage.allUsers){
     var users = JSON.parse(localStorage.getItem('allUsers'));
@@ -73,3 +80,5 @@ function checkTime(i) {
 }
 startClock();
 //*********************** */
+checkStoredUsers();
+loginForm.addEventListener('submit', loginHandler);
