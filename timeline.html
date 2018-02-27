@@ -19,7 +19,7 @@
       <nav>
         <ul>
           <li><a href="index.html"><img src="https://www.placehold.it/50x50"></a></li>
-          <li><div id="clock"></div></li>
+          <li><div id="title">Timeline</div><div id="clock"></div></li>
           <li><a href="about.html">About Us</a></li>
         </ul>
       </nav>
@@ -100,38 +100,37 @@
     </main>
     
     <footer>
-      <fieldset name="add-event">
-        <!-- Create the editor container -->
+      <!-- <fieldset name="add-event">
         <div id="editor">
           <p>Hello World!</p>
           <p>Some initial <strong>bold</strong> text</p>
           <p><br></p>
         </div>
-      </fieldset>
-      <form id="addNewEvent">
-        <fieldset>
-            <legend>Input a New Event</legend>
-            <label for="eventName">Event Name</label>
-            <input input="eventName" type="text"></input>
-            
-            <label for="eventDetails">Event Details</label>
-            <input input="eventDetails" type="text"></input>
-            
-            <label for="eventYear">Year</label>
-            <input input="eventYear" type="number"></input>
+      </fieldset> -->
+      <fieldset>
+        <form id="addNewEvent">
+          <legend>Input a New Event</legend>
+          <label for="eventName">Event Name</label>
+          <input input="eventName" type="text"></input>
+          
+          <label for="eventDetails">Event Details</label>
+          <input input="eventDetails" type="text"></input>
+          
+          <label for="eventYear">Year</label>
+          <input input="eventYear" type="number"></input>
 
-            <label for="eventMonth">Month</label>
-            <input input="eventMonth" type="number"></input>
+          <label for="eventMonth">Month</label>
+          <input input="eventMonth" type="number"></input>
 
-            <label for="eventDay">Day</label>
-            <input input="evenDay" type="number"></input>
+          <label for="eventDay">Day</label>
+          <input input="evenDay" type="number"></input>
 
-            <label for="eventHour">Hour</label>
-            <input input="eventHour" type="number"></input>
+          <label for="eventHour">Hour</label>
+          <input input="eventHour" type="number"></input>
 
-            <button type="submit" id="submitButton">Submit New Event</button>
-        </fieldset> 
-    </form>
+          <button type="submit" id="submitButton">Submit New Event</button>
+        </form>
+      </fieldset> 
       
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
