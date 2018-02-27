@@ -1,6 +1,6 @@
 'use strict';
 //GLOBAL VARS
-var loginForm = document.getElementById('login-form');//grabing form from index
+var loginForm = document.getElementById('login-form');//grabbing form from index
 //create an array to hold all users
 User.allUsers = [];
 //create variable to hold current user
