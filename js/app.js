@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 'use strict';
 //GLOBAL VARS
 var loginForm = document.getElementById('login-form');//grabbing form from index
@@ -87,3 +88,5 @@ navClock();
 //*********************** */
 checkStoredUsers();
 loginForm.addEventListener('submit', loginHandler);
+=======
+>>>>>>> a76f92b0d153b1231b880ba886be5347b6d506c8
