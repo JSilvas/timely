@@ -133,6 +133,7 @@ var renderSunday = (dayNumber) =>{
 //++++++++++++++++++++++++++++++
 // INSTANCES
 //++++++++++++++++++++++++++++++
+<<<<<<< HEAD
 var stateOne = () =>{
   var newMoment1 = new CreateEvent('van time' , 'down by the river' , 2018, 1, 26, 4 );
   var newMoment2 = new CreateEvent('meet luca' , 'give luca the cement shoes so he can swim with the fishes' , 2018, 1, 26, 12);
@@ -166,6 +167,23 @@ var stateOne = () =>{
 // form event listener
 addNewEvent.addEventListener('submit' , function(event) {
   event.preventDefault();
+=======
+//Clock function to keep track of time with date function.
+function navClock(){
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('clock').innerHTML = h + ':' + m + ':' + s;
+  var t = setTimeout(function(){ navClock();}, 500);
+}
+function checkTime(i) {
+  if (i < 10) {i = '0' + i;}// add zero in front of numbers < 10
+  return i;
+}
+>>>>>>> 54e2b97c931db8cc8e7b88bc02073f6888a8228c
 
   var newYear = addNewEvent.elements[3].valueAsNumber;
   var newMonth = addNewEvent.elements[4].valueAsNumber;
@@ -182,6 +200,7 @@ addNewEvent.addEventListener('submit' , function(event) {
 //++++++++++++++++++++++++++++++
 // EXECUTES ON PAGE LOAD
 //++++++++++++++++++++++++++++++
+<<<<<<< HEAD
 stateOne();
 // renderMonday(26);
 // renderTuesday(27);
@@ -190,3 +209,6 @@ stateOne();
 // renderFriday(2);
 // renderSaturday(3);
 // renderSunday(4);
+=======
+navClock();
+>>>>>>> 54e2b97c931db8cc8e7b88bc02073f6888a8228c
