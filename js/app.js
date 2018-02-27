@@ -38,6 +38,7 @@ function loginHandler(event) {
       User.currentUser = User.allUsers[i];
       event.target.reset();
       saveCurrentUser();
+      goToTimeline();
       break;
     }
   }//if current user is not in array make a new user and add to User array.
@@ -46,6 +47,7 @@ function loginHandler(event) {
     event.target.reset();
     saveUserToLocal();
     saveCurrentUser();
+    goToTimeline();
   }
 }
 //checks local storage for users
@@ -59,9 +61,12 @@ function checkStoredUsers(){
   if(localStorage.currentUser){
     var currentUser = JSON.parse(localStorage.getItem('currentUser'));
     User.currentUser = currentUser;
+    // goToTimeline();
   }
 }
-
+function goToTimeline(){
+  window.location = 'timeline.html';
+}
 //********************* */
 //Clock function to keep track of time with date function.
 function startClock(){
