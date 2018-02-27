@@ -18,63 +18,108 @@
     <header>
       <nav>
         <ul>
-          <li><a href="index.html"><img src="img/logo.png"></a></li>
-          <li><a id="clock" href="index.html">Logout</a></li>
+          <li><a href="index.html"><img src="https://www.placehold.it/50x50"></a></li>
+          <li><a id="clock" href="index.html">Clock-PlaceHolder</a></li>
           <li><a href="about.html">About Us</a></li>
         </ul>
       </nav>
     </header>
     
-    <main>
-      <section>
-        <h1>This is extra space for forecast view to fill.</h1>
-      </section>
-      <section>
-        <ul class="timeline">
-          <li><div id="slot1" class="days">
-            <h3>March 3, 2018</h3>
-            <event>I'm an event! | 10:30 AM</event>
-            <event>I'm an event! | March 3rd, 2018</event>
-          </div></li>
-          
-          <li><div id="slot2" class="days">
-            <h3>March 3, 2018</h3>
-            <event>I'm an event! | 10:30 AM</event>
-            <event>I'm an event! | March 3rd, 2018</event>
-          </div></li>
-          
-          <li><div id="slot3" class="days">
-            <h3>March 3, 2018</h3>
-            <event>I'm an event! | 10:30 AM</event>
-            <event>I'm an event! | March 3rd, 2018</event>
-          </div></li>
-          
-          <li><div id="slot4" class="days">
-            <h3>March 3, 2018</h3>
-            <event>I'm an event! | 10:30 AM</event>
-            <event>I'm an event! | March 3rd, 2018</event>
-          </div></li>
-          
-          <li><div id="slot5" class="days">
-            <h3>March 3, 2018</h3>
-            <event>I'm an event! | 10:30 AM</event>
-            <event>I'm an event! | March 3rd, 2018</event>
-          </div></li>
-          
-          <li><div id="slot6" class="days">
-            <h3>March 3, 2018</h3>
-            <event>I'm an event! | 10:30 AM</event>
-            <event>I'm an event! | March 3rd, 2018</event>
-          </div></li>
+    <main> 
+      <table id="timeline">
+        <thead>
+          <tr>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+            <th>Sun</th>
+          </tr>
+        </thead>
+        <tr>
+          <td> 
+            <ul>
+              <li>Event</li>
+              <li>Event</li>
+              <li>Event</li>
+            </ul>
+          </td>
+          <td> 
+            <ul>
+              <li>Event</li>
+              <li>Event</li>
+              <li>Event</li>
+            </ul>
+          </td>
+          <td> 
+            <ul>
+              <li>Event</li>
+              <li>Event</li>
+            </ul>
+          </td>
+          <td> 
+            <ul>
+              <li>Event</li>
+              <li>Event</li>
+              <li>Event</li>
+              <li>Event</li>
+              <li>Event</li>
+            </ul>
+          </td>
+          <td> 
+            <ul>
+              <li>Event</li>
+              <li>Event</li>
+              <li>Event</li>
+            </ul>
+          </td>
+          <td> 
+            <ul>
+              <li>Event</li>
+            </ul>
+          </td>
+          <td> 
+            <ul>
+              <li>Event</li>
+              <li>Event</li>
+              <li>Event</li>
+            </ul>
+          </td>
+        </tr>
+      </table>      
 
-          <li><div id="slot7" class="days">
-            <h3>March 3, 2018</h3>
-            <event>I'm an event! | 10:30 AM</event>
-            <event>I'm an event! | March 3rd, 2018</event>
-          </div></li>
-        </ul>
-      </section>
-
+      <!-- <div class="wrapper">
+        <section>
+          <ul id="timeline">
+            <li id="slot1" class="days">
+              <p>Day</p>
+            </li>
+            <li>
+              <p>Day</p>
+            </li>
+            <li>
+              <p>Day</p>
+            </li>
+            <li>
+              <p>Day</p>
+            </li>
+            <li>
+              <p>Day</p>
+            </li>
+            <li>
+              <p>Day</p>
+            </li>
+            <li>
+              <p>Day</p>
+            </li>
+          </ul>
+        </section>
+      </div> -->
+    </main>
+    
+    <footer>
       <fieldset name="add-event">
         <!-- Create the editor container -->
         <div id="editor">
@@ -83,16 +128,6 @@
           <p><br></p>
         </div>
       </fieldset>
-
-
-
-    <!-- Initialize Quill editor -->
-
-    
-    
-    </main>
-    
-    <footer>
       
     </footer>
     <script src="js/timeline.js"></script>

@@ -3,7 +3,7 @@
 // GLOBAL DATA
 //++++++++++++++++++++++++++++++
 // Initialize Quill editor
-var quill = new Quill('#editor', {
+var quill = new Quill('#editor', {  
   modules: { toolbar: true },
   theme: 'snow'
 });
