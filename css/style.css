@@ -3,8 +3,14 @@ body {
 	font-family: 'Istok Web', sans-serif;
 }
 
-h1, h2, h3 {
+h1 {
+	font-family: 'Pacifico', cursive;
+	font-size: 42pt;
+}
+
+h2, h3 {
 	font-family: 'Permanent Marker', cursive;
+	font-size: 24pt;
 }
 nav li{
   display: inline-block;
