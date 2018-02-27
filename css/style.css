@@ -1,3 +1,11 @@
+body {
+	font-family: 'Pacifico', cursive;
+	font-family: 'Istok Web', sans-serif;
+}
+
+h1, h2, h3 {
+	font-family: 'Permanent Marker', cursive;
+}
 nav li{
   display: inline-block;
 }
@@ -5,3 +13,13 @@ nav.logo{
   float: left;
   margin: 5px 10px;
 }
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+  }
