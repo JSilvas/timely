@@ -3,10 +3,10 @@
 // GLOBAL DATA
 //++++++++++++++++++++++++++++++
 // Initialize Quill editor
-var quill = new Quill('#editor', {  
-  modules: { toolbar: true },
-  theme: 'snow'
-});
+// var quill = new Quill('#editor', {  
+//   modules: { toolbar: true },
+//   theme: 'snow'
+// });
 
 // var addEvent = document.getElementById('addNewEvent');
 var allMoments = [];
