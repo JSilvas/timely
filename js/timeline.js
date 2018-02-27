@@ -3,7 +3,7 @@
 // GLOBAL DATA
 //++++++++++++++++++++++++++++++
 // Initialize Quill editor
-// var quill = new Quill('#editor', {  
+// var quill = new Quill('#editor', {
 //   modules: { toolbar: true },
 //   theme: 'snow'
 // });
@@ -32,7 +32,7 @@ var CreateEvent = function(name, details, year, month, day, hours){
   this.details = details;
   this.moment = moment([this.year, this.month, this.day, this.hours]);
   allMoments.push(this);
-  
+
 };
 
 //render prototype
@@ -196,7 +196,7 @@ addNewEvent.addEventListener('submit' , function(event) {
 
   sortMoments();
   setMoments();
-  
+
 });
 
 //++++++++++++++++++++++++++++++
