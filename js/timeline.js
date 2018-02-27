@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 //++++++++++++++++++++++++++++++
 // GLOBAL DATA
 //++++++++++++++++++++++++++++++
@@ -10,6 +10,8 @@ var quill = new Quill('#editor', {
 
 // var addEvent = document.getElementById('addNewEvent');
 var allMoments = [];
+var addNewEvent = document.getElementById('addNewEvent');
+var timeline = document.getElementById('timeline');
 var monday = document.getElementById('dayZero');
 var tuesday = document.getElementById('dayOne');
 var wednesday = document.getElementById('dayTwo');
@@ -32,6 +34,8 @@ var CreateEvent = function(name, details, year, month, day, hours){
   allMoments.push(this);
   
 };
+
+//render prototype
 
 //++++++++++++++++++++++++++++++
 // FUNCTION DECLARATIONS
@@ -159,28 +163,30 @@ var stateOne = () =>{
 // EVENT LISTENERS
 //++++++++++++++++++++++++++++++
 
-//form event listener
-// addEvent.addEventListener('submit' , function(event) {
-//   event.preventDefault();
+// form event listener
+addNewEvent.addEventListener('submit' , function(event) {
+  event.preventDefault();
 
-//   var newYear = addEvent.elements[3].valueAsNumber;
-//   var newMonth = addEvent.elements[4].valueAsNumber;
-//   var newDay = addEvent.elements[5].valueAsNumber;
-//   var newHour = addEvent.elements[6].valueAsNumber;
+  var newYear = addNewEvent.elements[3].valueAsNumber;
+  var newMonth = addNewEvent.elements[4].valueAsNumber;
+  var newDay = addNewEvent.elements[5].valueAsNumber;
+  var newHour = addNewEvent.elements[6].valueAsNumber;
 
-//   createEvent(addEvent.elements[1].value, addEvent.elements[2].value, {year: newYear, month: newMonth, day: newDay, hour: newHour});
-//   sortMoments();
-//   storeMoments();
-// });
+  new CreateEvent(addNewEvent.elements[1].value, addNewEvent.elements[2].value, newYear, newMonth, newDay, newHour);
+  timeline.textContent='';
+  sortMoments();
+  setMoments();
+  
+});
 
 //++++++++++++++++++++++++++++++
 // EXECUTES ON PAGE LOAD
 //++++++++++++++++++++++++++++++
 stateOne();
-renderMonday(26);
-renderTuesday(27);
-renderWednesday(28);
-renderThursday(1);
-renderFriday(2);
-renderSaturday(3);
-renderSunday(4);
+// renderMonday(26);
+// renderTuesday(27);
+// renderWednesday(28);
+// renderThursday(1);
+// renderFriday(2);
+// renderSaturday(3);
+// renderSunday(4);
