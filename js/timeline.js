@@ -21,18 +21,23 @@ var sunday = document.getElementById('daySix');
 // CONSTRUCTORS
 //++++++++++++++++++++++++++++++
 
-var CreateEvent = function(name, details, time){
-  this.moment = moment(time);
+var CreateEvent = function(name, details, year, month, day, hours){
+  this.year = year;
+  this.month = month;
+  this.day = day;
+  this.hours = hours;
   this.name= name;
   this.details = details;
+  this.moment = moment([this.year, this.month, this.day, this.hours]);
   allMoments.push(this);
+  
 };
 
 //++++++++++++++++++++++++++++++
 // FUNCTION DECLARATIONS
 //++++++++++++++++++++++++++++++
 
-//sort event array function
+// sort event array function
 var sortMoments = () =>{
   allMoments.sort(function(a, b){
     return a.moment._d - b.moment._d;
@@ -125,28 +130,28 @@ var renderSunday = (dayNumber) =>{
 // INSTANCES
 //++++++++++++++++++++++++++++++
 var stateOne = () =>{
-  var newMoment1 = new CreateEvent('van time' , 'down by the river' , [2018, 1, 26, 4 ]);
-  var newMoment2 = new CreateEvent('meet luca' , 'give luca the cement shoes so he can swim with the fishes' , [2018, 1, 26, 12]);
-  var newMoment3 = new CreateEvent('gym' , '1v1 with Lebron James' , [2018, 1, 26, 18 ]);
-  var newMoment4 = new CreateEvent('gym' , 'all your base are belong to us' , [2018, 1, 27, 6]);
-  var newMoment5 = new CreateEvent('van time' , 'nap down by the river' , [2018, 1, 27, 15 ]);
-  var newMoment6 = new CreateEvent('coffee' , 'go back and look for my phone' , [2018, 1, 28, 6]);
-  var newMoment7 = new CreateEvent('find luca' , 'fish luca out of the river' , [2018, 1, 28, 18 ]);
-  var newMoment8 = new CreateEvent('jail' , 'do not pass go or collect $200' , [2018, 2, 1, 5]);
-  var newMoment9 = new CreateEvent('jail' , 'do not pass go or collect $200' , [2018, 2, 1, 9 ]);
-  var newMoment10 = new CreateEvent('jail' , 'do not pass go or collect $200' , [2018, 2, 1, 10]);
-  var newMoment11 = new CreateEvent('jail' , 'do not pass go or collect $200' , [2018, 2, 1, 3 ]);
-  var newMoment12 = new CreateEvent('jail' , 'do not pass go or collect $200' , [2018, 2, 1, 23]);
-  var newMoment13 = new CreateEvent('jail' , 'do not pass go or collect $200' , [2018, 2, 2, 18 ]);
-  var newMoment14 = new CreateEvent('jail' , 'do not pass go or collect $200' , [2018, 2, 2, 2]);
-  var newMoment15 = new CreateEvent('jail' , 'do not pass go or collect $200' , [2018, 2, 2, 19 ]);
-  var newMoment16 = new CreateEvent('jail' , 'do not pass go or collect $200' , [2018, 2, 2, 7]);
-  var newMoment17 = new CreateEvent('jail' , 'do not pass go or collect $200' , [2018, 2, 2, 5 ]);
-  var newMoment18 = new CreateEvent('jail' , 'do not pass go or collect $200' , [2018, 2, 3, 2]);
-  var newMoment19 = new CreateEvent('jail' , 'do not pass go or collect $200' , [2018, 2, 3, 18 ]);
-  var newMoment20 = new CreateEvent('jail' , 'do not pass go or collect $200' , [2018, 2, 4, 12]);
-  var newMoment21 = new CreateEvent('jail' , 'do not pass go or collect $200' , [2018, 2, 4, 18 ]);
-  var newMoment22 = new CreateEvent('jail' , 'do not pass go or collect $200' , [2018, 2, 4, 21]);
+  var newMoment1 = new CreateEvent('van time' , 'down by the river' , 2018, 1, 26, 4 );
+  var newMoment2 = new CreateEvent('meet luca' , 'give luca the cement shoes so he can swim with the fishes' , 2018, 1, 26, 12);
+  var newMoment3 = new CreateEvent('gym' , '1v1 with Lebron James' , 2018, 1, 26, 18 );
+  var newMoment4 = new CreateEvent('gym' , 'all your base are belong to us' , 2018, 1, 27, 6);
+  var newMoment5 = new CreateEvent('van time' , 'nap down by the river' , 2018, 1, 27, 15 );
+  var newMoment6 = new CreateEvent('coffee' , 'go back and look for my phone' , 2018, 1, 28, 6);
+  var newMoment7 = new CreateEvent('find luca' , 'fish luca out of the river' , 2018, 1, 28, 18 );
+  var newMoment8 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 1, 5);
+  var newMoment9 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 1, 9 );
+  var newMoment10 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 1, 10);
+  var newMoment11 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 1, 3 );
+  var newMoment12 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 1, 23);
+  var newMoment13 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 2, 18);
+  var newMoment14 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 2, 2);
+  var newMoment15 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 2, 19);
+  var newMoment16 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 2, 7);
+  var newMoment17 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 2, 5);
+  var newMoment18 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 3, 2);
+  var newMoment19 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 3, 18);
+  var newMoment20 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 4, 12);
+  var newMoment21 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 4, 18);
+  var newMoment22 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 4, 21);
   sortMoments();
 };
 
