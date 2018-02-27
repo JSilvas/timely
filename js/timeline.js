@@ -31,6 +31,7 @@ var CreateEvent = function(name, details, time){
 //++++++++++++++++++++++++++++++
 // FUNCTION DECLARATIONS
 //++++++++++++++++++++++++++++++
+
 //sort event array function
 var sortMoments = () =>{
   allMoments.sort(function(a, b){
