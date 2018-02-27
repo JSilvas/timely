@@ -39,7 +39,7 @@ var sortMoments = () =>{
 };
 
 //store array function
-var storeMoments = () =>{
+var setMoments = () =>{
   localStorage.setItem('allMoments' , JSON.stringify(allMoments));
 };
 
@@ -50,13 +50,76 @@ var getMoments = () =>{
 };
 
 //render moments to page
-var renderMoments = (day) =>{
+var renderMonday = (dayNumber) =>{
   for(var i = 0; i < allMoments.length; i++){
-      if(allMoments[i].moment._i[2] === day){
-          
-      }
+    if(allMoments[i].moment._i[2] === dayNumber){
+      var newLi = document.createElement('li');
+      newLi.textContent = allMoments[i].name;
+      monday.appendChild(newLi);
+    }
   }
 };
+
+var renderTuesday = (dayNumber) =>{
+  for(var i = 0; i < allMoments.length; i++){
+    if(allMoments[i].moment._i[2] === dayNumber){
+      var newLi = document.createElement('li');
+      newLi.textContent = allMoments[i].name;
+      tuesday.appendChild(newLi);
+    }
+  }
+};
+
+var renderWednesday = (dayNumber) =>{
+  for(var i = 0; i < allMoments.length; i++){
+    if(allMoments[i].moment._i[2] === dayNumber){
+      var newLi = document.createElement('li');
+      newLi.textContent = allMoments[i].name;
+      wednesday.appendChild(newLi);
+    }
+  }
+};
+
+var renderThursday = (dayNumber) =>{
+  for(var i = 0; i < allMoments.length; i++){
+    if(allMoments[i].moment._i[2] === dayNumber){
+      var newLi = document.createElement('li');
+      newLi.textContent = allMoments[i].name;
+      thursday.appendChild(newLi);
+    }
+  }
+};
+
+var renderFriday = (dayNumber) =>{
+  for(var i = 0; i < allMoments.length; i++){
+    if(allMoments[i].moment._i[2] === dayNumber){
+      var newLi = document.createElement('li');
+      newLi.textContent = allMoments[i].name;
+      friday.appendChild(newLi);
+    }
+  }
+};
+
+var renderSaturday = (dayNumber) =>{
+  for(var i = 0; i < allMoments.length; i++){
+    if(allMoments[i].moment._i[2] === dayNumber){
+      var newLi = document.createElement('li');
+      newLi.textContent = allMoments[i].name;
+      saturday.appendChild(newLi);
+    }
+  }
+};
+
+var renderSunday = (dayNumber) =>{
+  for(var i = 0; i < allMoments.length; i++){
+    if(allMoments[i].moment._i[2] === dayNumber){
+      var newLi = document.createElement('li');
+      newLi.textContent = allMoments[i].name;
+      sunday.appendChild(newLi);
+    }
+  }
+};
+
 //++++++++++++++++++++++++++++++
 // INSTANCES
 //++++++++++++++++++++++++++++++
@@ -108,3 +171,10 @@ var stateOne = () =>{
 // EXECUTES ON PAGE LOAD
 //++++++++++++++++++++++++++++++
 stateOne();
+renderMonday(26);
+renderTuesday(27);
+renderWednesday(28);
+renderThursday(1);
+renderFriday(2);
+renderSaturday(3);
+renderSunday(4);
