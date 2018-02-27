@@ -36,31 +36,50 @@ var CreateEvent = function(name, details, year, month, day, hours){
 };
 
 //render prototype
+CreateEvent.prototype.render = function(){
+
+};
 
 //++++++++++++++++++++++++++++++
 // FUNCTION DECLARATIONS
 //++++++++++++++++++++++++++++++
 
 // sort event array function
-var sortMoments = () =>{
+function sortMoments(){
   allMoments.sort(function(a, b){
     return a.moment._d - b.moment._d;
   });
-};
+}
 
 //store array function
-var setMoments = () =>{
+function setMoments(){
   localStorage.setItem('allMoments' , JSON.stringify(allMoments));
 };
 
 //get array function
-var getMoments = () =>{
+function getMoments(){
   var retrievedMoments = localStorage.getItem('allMoments');
   allMoments = JSON.parse(retrievedMoments);
 };
 
+//Clock function to keep track of time with date function.
+function navClock(){
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('clock').innerHTML = h + ':' + m + ':' + s;
+  var t = setTimeout(function(){ navClock();}, 500);
+}
+function checkTime(i) {
+  if (i < 10) {i = '0' + i;}// add zero in front of numbers < 10
+  return i;
+};
+
 //render moments to page
-var renderMonday = (dayNumber) =>{
+var renderMonday = function(dayNumber){
   for(var i = 0; i < allMoments.length; i++){
     if(allMoments[i].moment._i[2] === dayNumber){
       var newLi = document.createElement('li');
@@ -133,29 +152,30 @@ var renderSunday = (dayNumber) =>{
 //++++++++++++++++++++++++++++++
 // INSTANCES
 //++++++++++++++++++++++++++++++
+
 var stateOne = () =>{
-  var newMoment1 = new CreateEvent('van time' , 'down by the river' , 2018, 1, 26, 4 );
-  var newMoment2 = new CreateEvent('meet luca' , 'give luca the cement shoes so he can swim with the fishes' , 2018, 1, 26, 12);
-  var newMoment3 = new CreateEvent('gym' , '1v1 with Lebron James' , 2018, 1, 26, 18 );
-  var newMoment4 = new CreateEvent('gym' , 'all your base are belong to us' , 2018, 1, 27, 6);
-  var newMoment5 = new CreateEvent('van time' , 'nap down by the river' , 2018, 1, 27, 15 );
-  var newMoment6 = new CreateEvent('coffee' , 'go back and look for my phone' , 2018, 1, 28, 6);
-  var newMoment7 = new CreateEvent('find luca' , 'fish luca out of the river' , 2018, 1, 28, 18 );
-  var newMoment8 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 1, 5);
-  var newMoment9 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 1, 9 );
-  var newMoment10 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 1, 10);
-  var newMoment11 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 1, 3 );
-  var newMoment12 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 1, 23);
-  var newMoment13 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 2, 18);
-  var newMoment14 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 2, 2);
-  var newMoment15 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 2, 19);
-  var newMoment16 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 2, 7);
-  var newMoment17 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 2, 5);
-  var newMoment18 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 3, 2);
-  var newMoment19 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 3, 18);
-  var newMoment20 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 4, 12);
-  var newMoment21 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 4, 18);
-  var newMoment22 = new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 4, 21);
+  new CreateEvent('van time' , 'down by the river' , 2018, 1, 26, 4 );
+  new CreateEvent('meet luca' , 'give luca the cement shoes so he can swim with the fishes' , 2018, 1, 26, 12);
+  new CreateEvent('gym' , '1v1 with Lebron James' , 2018, 1, 26, 18 );
+  new CreateEvent('gym' , 'all your base are belong to us' , 2018, 1, 27, 6);
+  new CreateEvent('van time' , 'nap down by the river' , 2018, 1, 27, 15 );
+  new CreateEvent('coffee' , 'go back and look for my phone' , 2018, 1, 28, 6);
+  new CreateEvent('find luca' , 'fish luca out of the river' , 2018, 1, 28, 18 );
+  new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 1, 5);
+  new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 1, 9 );
+  new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 1, 10);
+  new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 1, 3 );
+  new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 1, 23);
+  new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 2, 18);
+  new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 2, 2);
+  new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 2, 19);
+  new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 2, 7);
+  new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 2, 5);
+  new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 3, 2);
+  new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 3, 18);
+  new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 4, 12);
+  new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 4, 18);
+  new CreateEvent('jail' , 'do not pass go or collect $200' , 2018, 2, 4, 21);
   sortMoments();
 };
 
@@ -173,7 +193,7 @@ addNewEvent.addEventListener('submit' , function(event) {
   var newHour = addNewEvent.elements[6].valueAsNumber;
 
   new CreateEvent(addNewEvent.elements[1].value, addNewEvent.elements[2].value, newYear, newMonth, newDay, newHour);
-  timeline.textContent='';
+
   sortMoments();
   setMoments();
   
@@ -182,6 +202,7 @@ addNewEvent.addEventListener('submit' , function(event) {
 //++++++++++++++++++++++++++++++
 // EXECUTES ON PAGE LOAD
 //++++++++++++++++++++++++++++++
+
 stateOne();
 // renderMonday(26);
 // renderTuesday(27);
@@ -190,3 +211,6 @@ stateOne();
 // renderFriday(2);
 // renderSaturday(3);
 // renderSunday(4);
+
+navClock();
+
