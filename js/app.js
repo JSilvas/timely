@@ -5,7 +5,7 @@ var loginForm = document.getElementById('login-form');//grabbing form from index
 //create an array to hold all users
 User.allUsers = [];
 //create variable to hold current user
-User.currentUser = {name:'', password:''};
+User.currentUser = {name:''};
 //user constructor
 
 function User(username, password){
