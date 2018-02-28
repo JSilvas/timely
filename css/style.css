@@ -1,21 +1,56 @@
+
 body {
-	font-family: 'Pacifico', cursive;
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+  background: linear-gradient(to right, #78E5EB 10%, white 25%,white 50%, #E12D53 100%);
+  max-width: auto;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2em;
 }
 
+header {
+  background: linear-gradient(to right, #78E5EB 10%, white 25%,white 50%, #E12D53 100%);
+  height:10%;
+  width: 100%;
 
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700); 
-body {
-  font-family: Montserrat;
 }
-* { padding: 0; margin: 0 }
+
 body, html {
   height: 100%;
   min-height: 100%;
 }
+
+nav {
+  text-align: center;
+  margin: 0px auto;
+  padding-top: 20px;
+}
+nav li {
+  display: inline;
+  /* line-height: 50px; */
+  list-style: none;
+}
+
+nav li img {
+  float: right;
+}
+
+/* nav ul li:first-child {
+  float: left;
+} */
+
+/* nav ul li:last-child {
+  outline: dotted orange ;
+  box-sizing: border-box;
+  float: right;
+} */
+
 #video-container  {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 50%;
+  opacity: .8;
   overflow: hidden;
 }
 #video-container video,
@@ -62,7 +97,6 @@ body, html {
 }
 
 
-
 h1 {
 	font-family: 'Permanent Marker', cursive;
 	font-size: 42pt;
@@ -72,23 +106,21 @@ h2, h3 {
 	font-family: 'Permanent Marker', cursive;
 	font-size: 24pt;
 }
-nav li{
-  display: inline-block;
-}
-nav.logo{
-  float: left;
-  margin: 5px 10px;
-}
 
-.footer {
-  position: absolute;
+.footer-left {
   right: 0;
   bottom: 0;
   left: 0;
   padding: 1rem;
-  background-color: #efefef;
+  background: linear-gradient(to right, #78E5EB 10%, white 25%,white 50%, #E12D53 100%);
   text-align: center;
+
 }
+
+.footer-left li {
+  display: inline;
+}
+
   body {
     /* background-color: #4c8dca; */
     max-width: auto;
@@ -98,7 +130,7 @@ nav.logo{
     font-size: 1.2em;
   }
   
-  nav {
+  /* nav {
     display: inline-block;
     width: 100%;
     padding: 0px;
@@ -116,4 +148,4 @@ nav.logo{
     box-sizing: border-box;
     float: right;
   }
-  }
+  } */
