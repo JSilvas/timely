@@ -79,8 +79,23 @@ nav.logo{
   margin: 5px 10px;
 }
 
-.footer {
-  position: absolute;
+#pictures-column-one, #pictures-column-two {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: -webkit-center;
+}
+
+.about-caption {
+	margin-top: 20px;
+	margin-bottom: 50px;
+	width: 350px;
+	text-align: justify;
+}
+
+.footer-left {
+  float: left;
   right: 0;
   bottom: 0;
   left: 0;
@@ -114,5 +129,4 @@ nav.logo{
     outline: dotted orange ;
     box-sizing: border-box;
     float: right;
-  }
   }
