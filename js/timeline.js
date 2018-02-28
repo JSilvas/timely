@@ -19,12 +19,12 @@ Tater.currentUser = '';
 // CONSTRUCTORS
 //++++++++++++++++++++++++++++++
 function Tater(name, details, year, month, day, hours){
+  this.name = name;
+  this.details = details;
   this.year = year;
   this.month = month;
   this.day = day;
   this.hours = hours;
-  this.name= name;
-  this.details = details;
   this.moment = moment([this.year, this.month, this.day, this.hours]);
   this.sortTaters();
 }
@@ -105,14 +105,11 @@ function checkTime(i) {
 function makeTestEvents() {
   new Tater('van time' , 'down by the river' , 2018, 2, 1, 4 );
   new Tater('meet luca' , 'give luca the cement shoes so he can swim with the fishes' , 2018, 2, 1, 12);
-  new Tater('gym' , '1v1 with Lebron James' , 2018, 2, 1, 18 );
   new Tater('gym' , 'all your base are belong to us' , 2018, 2, 2, 6);
-  new Tater('van time' , 'nap down by the river' , 2018, 2, 2, 15 );
   new Tater('coffee' , 'go back and look for my phone' , 2018, 2, 3, 6);
   new Tater('find luca' , 'fish luca out of the river' , 2018, 2, 3, 18 );
   new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 3, 5);
   new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 3, 9 );
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 3, 10);
   new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 4, 3 );
   new Tater('Feed Demi' , 'Make sure pupper is fed' , 2018, 2, 4, 23);
   new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 5, 18);
