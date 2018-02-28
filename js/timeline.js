@@ -11,8 +11,8 @@
 Tater.allTots = [];
 Tater.daySlots = [[],[],[],[],[],[],[]];
 var addEventForm = document.getElementById('addEvent');
-var timeTable = document.getElementById('time-table');
-var header = document.getElementById('header');
+// var timeTable = document.getElementById('time-table');
+// var header = document.getElementById('header');
 
 //++++++++++++++++++++++++++++++
 // CONSTRUCTORS
@@ -129,21 +129,22 @@ function makeTestEvents() {
 // Form event listener
 
 function addNewEvent(event) {
-  console.log('log of the event.target: ', event.target);
-  if (!event.target.eventName.value || !event.target.year.value || !event.target.month.value || !event.target.day.value || !event.target.hours.value) {
-    return alert('Please enter a name, date and hour.');
-  }
-
-
   event.preventDefault();
+  console.log('log of the event.target: ', event.target);
+  // if (!event.target.eventName.value || !event.target.year.value || !event.target.month.value || !event.target.day.value || !event.target.hours.value) {
+  //   return alert('Please enter a name, date and hour.');
+  // }
+
+
+
   var name = event.target.eventName.value;
   var details = event.target.details.value;
   var year = event.target.year.valueAsNumber;
   var month = event.target.month.valueAsNumber;
   var day = event.target.day.valueAsNumber;
   var hours = event.target.hours.valueAsNumber;
-  event.target.reset();
-  // Constructor (name, details, year, month, day, hours)
+  // event.target.reset();
+
   new Tater(name, details, year, month, day, hours);
   Tater.prototype.render();
 }
