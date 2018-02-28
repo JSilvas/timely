@@ -5,7 +5,7 @@ var loginForm = document.getElementById('login-form');//grabbing form from index
 //create an array to hold all users
 User.allUsers = [];
 //create variable to hold current user
-User.currentUser = {name:''};
+var currentUser = '';
 //user constructor
 
 function User(username, password){
@@ -20,14 +20,14 @@ function saveUserToLocal(){
 }
 
 function saveCurrentUser() {
-  localStorage.setItem('currentUser', JSON.stringify(User.currentUser));
+  localStorage.setItem('currentUser', JSON.stringify(currentUser));
 }
 
 function loginHandler(event) {
   event.preventDefault();
   var name = event.target.user.value;
   var password = event.target.password.value;
-  User.currentUser.name = name.toLowerCase();
+  currentUser = name.toLowerCase();
   //check if current user is in array of all users
   for(var i = 0; i < User.allUsers.length; i++){
     if(User.allUsers[i].username === name.toLowerCase() && User.allUsers[i].password !== password){
@@ -36,7 +36,7 @@ function loginHandler(event) {
       break;
     }
     if(User.allUsers[i].username === name.toLowerCase() && User.allUsers[i].password === password){
-      User.currentUser = User.allUsers[i];
+      currentUser = User.allUsers[i].username;
       event.target.reset();
       saveCurrentUser();
       goToTimeline();
@@ -60,8 +60,7 @@ function checkStoredUsers(){
     }
   }
   if(localStorage.currentUser){
-    var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    User.currentUser = currentUser;
+    currentUser = JSON.parse(localStorage.getItem('currentUser'));
     // goToTimeline();
   }
 }
