@@ -1,16 +1,39 @@
-body {
-	font-family: 'Pacifico', cursive;
+* { 
+  padding: 0; 
+  margin: 0; 
 }
 
 
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700); 
-body {
-  font-family: Montserrat;
-}
-* { padding: 0; margin: 0 }
 body, html {
   height: 100%;
   min-height: 100%;
+}
+body {
+text-align: center;
+  /* background-color: #4c8dca; */
+  max-width: auto;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2em;
+}
+
+nav {
+  display: inline-block;
+  width: 100%;
+  padding: 0px;
+}
+nav li {
+  display: inline-block;
+  line-height: 50px;
+  list-style: none;
+}
+nav ul li:first-child {
+  float: left;
+}
+nav ul li:last-child {
+  outline: dotted orange ;
+  box-sizing: border-box;
+  float: right;
 }
 #video-container  {
   position: relative;
@@ -71,13 +94,6 @@ h2, h3 {
 	font-family: 'Permanent Marker', cursive;
 	font-size: 24pt;
 }
-nav li{
-  display: inline-block;
-}
-nav.logo{
-  float: left;
-  margin: 5px 10px;
-}
 
 #pictures-column-one, #pictures-column-two {
   display: flex;
@@ -103,30 +119,3 @@ nav.logo{
   background-color: #efefef;
   text-align: center;
 }
-  body {
-    /* background-color: #4c8dca; */
-    max-width: auto;
-    height: 100%;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.2em;
-  }
-  
-  nav {
-    display: inline-block;
-    width: 100%;
-    padding: 0px;
-  }
-  nav li {
-    display: inline-block;
-    line-height: 50px;
-    list-style: none;
-  }
-  nav ul li:first-child {
-    float: left;
-  }
-  nav ul li:last-child {
-    outline: dotted orange ;
-    box-sizing: border-box;
-    float: right;
-  }
