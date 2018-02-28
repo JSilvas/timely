@@ -131,7 +131,7 @@ function makeTestEvents() {
 function addNewEvent(event) {
   console.log('log of the event.target: ', event.target);
   if (!event.target.eventName.value || !event.target.year.value || !event.target.month.value || !event.target.day.value || !event.target.hours.value) {
-    return alert('Please enter a name, date, and hour.');
+    return alert('Please enter a name, date and hour.');
   }
 
 
