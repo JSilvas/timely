@@ -73,7 +73,6 @@ Tater.prototype.render = function() { // Render prototype
 // Store array function
 function setTaters(){
   localStorage.setItem(currentUser , JSON.stringify(Tater.daySlots));
-  // localStorage.setItem('currentUser', JSON.stringify(Tater.currentUser));
 }
 
 // // Get array function
@@ -84,7 +83,7 @@ function getTaters(){
   }
   var thisUser = localStorage.getItem('currentUser');
   currentUser = JSON.parse(thisUser);
-  // Tater.currentUser = Tater.currentUser.name;
+
 }
 
 
@@ -139,8 +138,6 @@ function addNewEvent(event) {
   if (!event.target.eventName.value || !event.target.year.value || !event.target.month.value || !event.target.day.value || !event.target.hours.value) {
     return alert('Please enter a name, date and hour.');
   }
-
-
 
   var name = event.target.eventName.value;
   var details = event.target.details.value;
