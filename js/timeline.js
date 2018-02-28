@@ -10,20 +10,13 @@
 
 Tater.allTots = [];
 Tater.daySlots = [[],[],[],[],[],[],[]];
+var addEventForm = document.getElementById('addEvent');
+var timeTable = document.getElementById('time-table');
+var header = document.getElementById('header');
 
-// var addNewEvent = document.getElementById('addNewEvent');
-// var timeline = document.getElementById('timeline');
-// var monday = document.getElementById('dayZero');
-// var tuesday = document.getElementById('dayOne');
-// var wednesday = document.getElementById('dayTwo');
-// var thursday = document.getElementById('dayThree');
-// var friday = document.getElementById('dayFour');
-// var saturday = document.getElementById('dayFive');
-// var sunday = document.getElementById('daySix');
 //++++++++++++++++++++++++++++++
 // CONSTRUCTORS
 //++++++++++++++++++++++++++++++
-
 function Tater(name, details, year, month, day, hours){
   this.year = year;
   this.month = month;
@@ -34,7 +27,9 @@ function Tater(name, details, year, month, day, hours){
   this.moment = moment([this.year, this.month, this.day, this.hours]);
   this.sortTaters();
 }
-
+//++++++++++++++++++++++++++++++
+// PROTOTYPE METHODS
+//++++++++++++++++++++++++++++++
 Tater.prototype.sortTaters = function() {
   console.log(this);
   for (var i = 1; i < 8; i++) {
@@ -45,117 +40,45 @@ Tater.prototype.sortTaters = function() {
     console.log('I added an event to ' + this.day);
   }
 };
+Tater.prototype.render = function() { // Render prototype
+  var d0 = document.getElementById('day0');
+  var d1 = document.getElementById('day1');
+  var d2 = document.getElementById('day2');
+  var d3 = document.getElementById('day3');
+  var d4 = document.getElementById('day4');
+  var d5 = document.getElementById('day5');
+  var d6 = document.getElementById('day6');
+  var allDays = [d0,d1,d2,d3,d4,d5,d6];
 
-//render prototype
-// Tater.prototype.render = function(){
-
-
-//   for(var i = 0; i < allTots.length; i++){
-//     if(allTots[i].moment._i[2] === dayNumber){
-//       var newLi = document.createElement('li');
-//       newLi.textContent = allTots[i].name;
-//       monday.appendChild(newLi);
-//     }
-//   }
-
-
-
-
-// };
+  for(var i = 0; i < Tater.daySlots.length; i++) {
+    allDays[i].innerHTML = '';
+    for (var j = 0; j < Tater.daySlots[i].length; j++) {
+      var liEl = document.createElement('li');
+      liEl.textContent = Tater.daySlots[i][j].name; // + We need to show the time of each event as well
+      allDays[i].appendChild(liEl);
+    }
+  }
+};
 
 //++++++++++++++++++++++++++++++
 // FUNCTION DECLARATIONS
 //++++++++++++++++++++++++++++++
-
-// sort event array function
+// Sort event array function
 // function sortMoments(){
 //   allTots.sort(function(a, b){
 //     return a.moment._d - b.moment._d;
 //   });
 // }
-
-// //store array function
+// // Store array function
 // function setMoments(){
 //   localStorage.setItem('allTots' , JSON.stringify(allTots));
 // };
-
-// //get array function
+// // Get array function
 // function getMoments(){
 //   var retrievedMoments = localStorage.getItem('allTots');
 //   allTots = JSON.parse(retrievedMoments);
 // };
 
-
-// //render moments to page
-// var renderMonday = function(dayNumber){
-//   for(var i = 0; i < allTots.length; i++){
-//     if(allTots[i].moment._i[2] === dayNumber){
-//       var newLi = document.createElement('li');
-//       newLi.textContent = allTots[i].name;
-//       monday.appendChild(newLi);
-//     }
-//   }
-// };
-
-// var renderTuesday = (dayNumber) =>{
-//   for(var i = 0; i < allTots.length; i++){
-//     if(allTots[i].moment._i[2] === dayNumber){
-//       var newLi = document.createElement('li');
-//       newLi.textContent = allTots[i].name;
-//       tuesday.appendChild(newLi);
-//     }
-//   }
-// };
-
-// var renderWednesday = (dayNumber) =>{
-//   for(var i = 0; i < allTots.length; i++){
-//     if(allTots[i].moment._i[2] === dayNumber){
-//       var newLi = document.createElement('li');
-//       newLi.textContent = allTots[i].name;
-//       wednesday.appendChild(newLi);
-//     }
-//   }
-// };
-
-// var renderThursday = (dayNumber) =>{
-//   for(var i = 0; i < allTots.length; i++){
-//     if(allTots[i].moment._i[2] === dayNumber){
-//       var newLi = document.createElement('li');
-//       newLi.textContent = allTots[i].name;
-//       thursday.appendChild(newLi);
-//     }
-//   }
-// };
-
-// var renderFriday = (dayNumber) =>{
-//   for(var i = 0; i < allTots.length; i++){
-//     if(allTots[i].moment._i[2] === dayNumber){
-//       var newLi = document.createElement('li');
-//       newLi.textContent = allTots[i].name;
-//       friday.appendChild(newLi);
-//     }
-//   }
-// };
-
-// var renderSaturday = (dayNumber) =>{
-//   for(var i = 0; i < allTots.length; i++){
-//     if(allTots[i].moment._i[2] === dayNumber){
-//       var newLi = document.createElement('li');
-//       newLi.textContent = allTots[i].name;
-//       saturday.appendChild(newLi);
-//     }
-//   }
-// };
-
-// var renderSunday = (dayNumber) =>{
-//   for(var i = 0; i < allTots.length; i++){
-//     if(allTots[i].moment._i[2] === dayNumber){
-//       var newLi = document.createElement('li');
-//       newLi.textContent = allTots[i].name;
-//       sunday.appendChild(newLi);
-//     }
-//   }
-// };
 
 //Clock function to keep track of time with date function.
 function navClock(){
@@ -172,11 +95,7 @@ function checkTime(i) {
   if (i < 10) {i = '0' + i;}// add zero in front of numbers < 10
   return i;
 }
-//++++++++++++++++++++++++++++++
-// INSTANCES
-//++++++++++++++++++++++++++++++
-
-var stateOne = () =>{
+function makeTestEvents() {
   new Tater('van time' , 'down by the river' , 2018, 2, 1, 4 );
   new Tater('meet luca' , 'give luca the cement shoes so he can swim with the fishes' , 2018, 2, 1, 12);
   new Tater('gym' , '1v1 with Lebron James' , 2018, 2, 1, 18 );
@@ -188,52 +107,51 @@ var stateOne = () =>{
   new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 3, 9 );
   new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 3, 10);
   new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 4, 3 );
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 4, 23);
+  new Tater('Feed Demi' , 'Make sure pupper is fed' , 2018, 2, 4, 23);
   new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 5, 18);
   new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 5, 2);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 5, 19);
+  new Tater('jail' , 'Bail out Demi, she been a bad doggo' , 2018, 2, 5, 19);
   new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 6, 7);
   new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 6, 5);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 6, 2);
+  new Tater('Walk Doggo' , 'Take Demi-Dog for walk in the park' , 2018, 2, 6, 2);
   new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 6, 18);
   new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 6, 12);
   new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 7, 18);
   new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 7, 21);
-  // sortMoments();
-};
+  Tater.prototype.render();
+}
 
 //++++++++++++++++++++++++++++++
-// EVENT LISTENERS
+// INSTANCES
 //++++++++++++++++++++++++++++++
 
-// form event listener
-// addNewEvent.addEventListener('submit' , function(event) {
-//   event.preventDefault();
 
-//   var newYear = addNewEvent.elements[3].valueAsNumber;
-//   var newMonth = addNewEvent.elements[4].valueAsNumber;
-//   var newDay = addNewEvent.elements[5].valueAsNumber;
-//   var newHour = addNewEvent.elements[6].valueAsNumber;
+// Form event listener
 
-//   new Tater(addNewEvent.elements[1].value, addNewEvent.elements[2].value, newYear, newMonth, newDay, newHour);
+function addNewEvent(event) {
+  console.log('log of the event.target: ', event.target);
+  if (!event.target.eventName.value || !event.target.year.value || !event.target.month.value || !event.target.day.value || !event.target.hours.value) {
+    return alert('Please enter a name, date, and hour.');
+  }
 
-//   sortMoments();
-//   setMoments();
 
-// });
+  event.preventDefault();
+  var name = event.target.eventName.value;
+  var details = event.target.details.value;
+  var year = event.target.year.valueAsNumber;
+  var month = event.target.month.valueAsNumber;
+  var day = event.target.day.valueAsNumber;
+  var hours = event.target.hours.valueAsNumber;
+  event.target.reset();
+  // Constructor (name, details, year, month, day, hours)
+  new Tater(name, details, year, month, day, hours);
+  Tater.prototype.render();
+}
 
 //++++++++++++++++++++++++++++++
 // EXECUTES ON PAGE LOAD
 //++++++++++++++++++++++++++++++
-
-stateOne();
-// renderMonday(26);
-// renderTuesday(27);
-// renderWednesday(28);
-// renderThursday(1);
-// renderFriday(2);
-// renderSaturday(3);
-// renderSunday(4);
-
+makeTestEvents();
 navClock();
 
+addEventForm.addEventListener('submit' , addNewEvent);

@@ -19,15 +19,15 @@
       <nav>
         <ul>
           <li><a href="index.html"><img src="https://www.placehold.it/50x50"></a></li>
-          <li><div id="title">Timeline</div><div id="clock"></div></li>
+          <li><div class="minor-title">Timeline</div><div id="clock"></div></li>
           <li><a href="about.html">About Us</a></li>
         </ul>
       </nav>
     </header>
     
     <main> 
-      <table id="timeline">
-        <thead>
+      <table id="time-table">
+        <thead id="header">
           <tr>
             <th>Mon</th>
             <th>Tue</th>
@@ -40,63 +40,35 @@
         </thead>
         <tr>
           <td> 
-            <ul id = "dayZero">
+            <ul id = "day0">
             </ul>
           </td>
           <td> 
-            <ul id = "dayOne">
+            <ul id = "day1">
             </ul>
           </td>
           <td> 
-            <ul id = "dayTwo">
+            <ul id = "day2">
             </ul>
           </td>
           <td> 
-            <ul id = "dayThree">
+            <ul id = "day3">
             </ul>
           </td>
           <td> 
-            <ul id = "dayFour"> 
+            <ul id = "day4"> 
             </ul>
           </td>
           <td> 
-            <ul id = "dayFive">
+            <ul id = "day5">
             </ul>
           </td>
           <td> 
-            <ul id = "daySix">
+            <ul id = "day6">
             </ul>
           </td>
         </tr>
       </table>      
-
-      <!-- <div class="wrapper">
-        <section>
-          <ul id="timeline">
-            <li id="slot1" class="days">
-              <p>Day</p>
-            </li>
-            <li>
-              <p>Day</p>
-            </li>
-            <li>
-              <p>Day</p>
-            </li>
-            <li>
-              <p>Day</p>
-            </li>
-            <li>
-              <p>Day</p>
-            </li>
-            <li>
-              <p>Day</p>
-            </li>
-            <li>
-              <p>Day</p>
-            </li>
-          </ul>
-        </section>
-      </div> -->
     </main>
     
     <footer>
@@ -107,30 +79,30 @@
           <p><br></p>
         </div>
       </fieldset> -->
-      <fieldset>
-        <form id="addNewEvent">
-          <legend>Input a New Event</legend>
+      <form id="addEvent">
+        <fieldset>
+          <legend>Enter a New Event Here!</legend>
           <label for="eventName">Event Name</label>
           <input input="eventName" type="text"></input>
           
-          <label for="eventDetails">Event Details</label>
-          <input input="eventDetails" type="text"></input>
-          
-          <label for="eventYear">Year</label>
-          <input input="eventYear" type="number"></input>
+          <label for="details">Details</label>
+          <input input="details" type="text"></input>
 
-          <label for="eventMonth">Month</label>
-          <input input="eventMonth" type="number"></input>
+          <label for="year">Year</label>
+          <input input="year" type="number"></input>
 
-          <label for="eventDay">Day</label>
-          <input input="evenDay" type="number"></input>
+          <label for="month">Month</label>
+          <input input="month" type="number"></input>
 
-          <label for="eventHour">Hour</label>
-          <input input="eventHour" type="number"></input>
+          <label for="day">Day</label>
+          <input input="day" type="number"></input>
 
-          <button type="submit" id="submitButton">Submit New Event</button>
-        </form>
-      </fieldset> 
+          <label for="hours">Hour</label>
+          <input input="hours" type="number"></input>
+
+          <button type="submit">Add New Event</button>
+        </fieldset> 
+      </form>
       
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
