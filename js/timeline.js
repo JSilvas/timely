@@ -86,6 +86,21 @@ function getTaters(){
 
 }
 
+function getUserTaters(){
+  getTaters();
+  for(var i = 0; i < localStorage.length; i++){
+    if(localStorage.key(i) === currentUser){
+      var myTaters = localStorage.getItem(currentUser);
+      Tater.daySlots = JSON.parse(myTaters);
+      console.log('found you');
+      for(var j = 0; j < Tater.daySlots.length; j++){
+        for(var k = 0; k < Tater.daySlots[j].length; k++){
+          Tater.prototype.render();
+        }
+      }
+    }
+  }
+}
 
 //Clock function to keep track of time with date function.
 function navClock(){
@@ -155,8 +170,8 @@ function addNewEvent(event) {
 //++++++++++++++++++++++++++++++
 // EXECUTES ON PAGE LOAD
 //++++++++++++++++++++++++++++++
-makeTestEvents();
-
+// makeTestEvents();
+getUserTaters();
 navClock();
 
 addEventForm.addEventListener('submit' , addNewEvent);
