@@ -62,7 +62,7 @@ function checkStoredUsers(){
   if(localStorage.currentUser){
     var currentUser = JSON.parse(localStorage.getItem('currentUser'));
     User.currentUser = currentUser;
-    // goToTimeline();
+    goToTimeline();
   }
 }
 function goToTimeline(){

@@ -11,7 +11,7 @@
 Tater.allTots = [];
 Tater.daySlots = [[],[],[],[],[],[],[]];
 var addEventForm = document.getElementById('addEvent');
-Tater.currentUser = '';
+var currentUser = '';
 // var timeTable = document.getElementById('time-table');
 // var header = document.getElementById('header');
 
@@ -72,8 +72,8 @@ Tater.prototype.render = function() { // Render prototype
 // }
 // Store array function
 function setTaters(){
-  localStorage.setItem('allTots' , JSON.stringify(Tater.daySlots));
-  localStorage.setItem('currentUser', JSON.stringify(Tater.currentUser));
+  localStorage.setItem(currentUser , JSON.stringify(Tater.daySlots));
+  // localStorage.setItem('currentUser', JSON.stringify(Tater.currentUser));
 }
 
 // // Get array function
@@ -83,7 +83,8 @@ function getTaters(){
     Tater.daySlots = JSON.parse(gotTaters);
   }
   var thisUser = localStorage.getItem('currentUser');
-  Tater.currentUser = JSON.parse(thisUser);
+  currentUser = JSON.parse(thisUser);
+  // Tater.currentUser = Tater.currentUser.name;
 }
 
 
