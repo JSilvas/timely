@@ -11,6 +11,7 @@
 Tater.allTots = [];
 Tater.daySlots = [[],[],[],[],[],[],[]];
 var addEventForm = document.getElementById('addEvent');
+var currentUser = '';
 // var timeTable = document.getElementById('time-table');
 // var header = document.getElementById('header');
 
@@ -64,21 +65,42 @@ Tater.prototype.render = function() { // Render prototype
 // FUNCTION DECLARATIONS
 //++++++++++++++++++++++++++++++
 // Sort event array function
-// function sortMoments(){
+// function sortTaters(){
 //   allTots.sort(function(a, b){
 //     return a.moment._d - b.moment._d;
 //   });
 // }
-// // Store array function
-// function setMoments(){
-//   localStorage.setItem('allTots' , JSON.stringify(allTots));
-// };
-// // Get array function
-// function getMoments(){
-//   var retrievedMoments = localStorage.getItem('allTots');
-//   allTots = JSON.parse(retrievedMoments);
-// };
+// Store array function
+function setTaters(){
+  localStorage.setItem(currentUser , JSON.stringify(Tater.daySlots));
+}
 
+// // Get array function
+function getTaters(){
+  if(gotTaters){
+    var gotTaters = localStorage.getItem('allTots');
+    Tater.daySlots = JSON.parse(gotTaters);
+  }
+  var thisUser = localStorage.getItem('currentUser');
+  currentUser = JSON.parse(thisUser);
+
+}
+
+function getUserTaters(){
+  getTaters();
+  for(var i = 0; i < localStorage.length; i++){
+    if(localStorage.key(i) === currentUser){
+      var myTaters = localStorage.getItem(currentUser);
+      Tater.daySlots = JSON.parse(myTaters);
+      console.log('found you');
+      for(var j = 0; j < Tater.daySlots.length; j++){
+        for(var k = 0; k < Tater.daySlots[j].length; k++){
+          Tater.prototype.render();
+        }
+      }
+    }
+  }
+}
 
 //Clock function to keep track of time with date function.
 function navClock(){
@@ -128,11 +150,9 @@ function makeTestEvents() {
 function addNewEvent(event) {
   event.preventDefault();
   console.log('log of the event.target: ', event.target);
-  // if (!event.target.eventName.value || !event.target.year.value || !event.target.month.value || !event.target.day.value || !event.target.hours.value) {
-  //   return alert('Please enter a name, date and hour.');
-  // }
-
-
+  if (!event.target.eventName.value || !event.target.year.value || !event.target.month.value || !event.target.day.value || !event.target.hours.value) {
+    return alert('Please enter a name, date, and hour.');
+  }
 
   var name = event.target.eventName.value;
   var details = event.target.details.value;
@@ -140,16 +160,18 @@ function addNewEvent(event) {
   var month = event.target.month.valueAsNumber;
   var day = event.target.day.valueAsNumber;
   var hours = event.target.hours.valueAsNumber;
-  // event.target.reset();
+  event.target.reset();
 
   new Tater(name, details, year, month, day, hours);
   Tater.prototype.render();
+  setTaters();
 }
 
 //++++++++++++++++++++++++++++++
 // EXECUTES ON PAGE LOAD
 //++++++++++++++++++++++++++++++
-makeTestEvents();
+// makeTestEvents();
+getUserTaters();
 navClock();
 
 addEventForm.addEventListener('submit' , addNewEvent);
