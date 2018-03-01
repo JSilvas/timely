@@ -11,8 +11,11 @@
 Tater.allTots = [];
 Tater.daySlots = [[],[],[],[],[],[],[]];
 var addEventForm = document.getElementById('addEvent');
+var timeTable = document.getElementById('time-table');
 var currentUser = '';
-// var timeTable = document.getElementById('time-table');
+// Create global variable for logout button.
+var logoutButton = document.getElementById('logout');
+
 // var header = document.getElementById('header');
 
 //++++++++++++++++++++++++++++++
@@ -57,6 +60,9 @@ Tater.prototype.render = function() { // Render prototype
       var liEl = document.createElement('li');
       liEl.textContent = Tater.daySlots[i][j].name; // + We need to show the time of each event as well
       allDays[i].appendChild(liEl);
+      liEl = document.createElement('p');
+      liEl.textContent = Tater.daySlots[i][j].details;
+      allDays[i].appendChild(liEl);
     }
   }
 };
@@ -83,7 +89,6 @@ function getTaters(){
   }
   var thisUser = localStorage.getItem('currentUser');
   currentUser = JSON.parse(thisUser);
-
 }
 
 function getUserTaters(){
@@ -92,7 +97,6 @@ function getUserTaters(){
     if(localStorage.key(i) === currentUser){
       var myTaters = localStorage.getItem(currentUser);
       Tater.daySlots = JSON.parse(myTaters);
-      console.log('found you');
       for(var j = 0; j < Tater.daySlots.length; j++){
         for(var k = 0; k < Tater.daySlots[j].length; k++){
           Tater.prototype.render();
@@ -144,7 +148,6 @@ function makeTestEvents() {
 // INSTANCES
 //++++++++++++++++++++++++++++++
 
-
 // Form event listener
 
 function addNewEvent(event) {
@@ -175,3 +178,22 @@ getUserTaters();
 navClock();
 
 addEventForm.addEventListener('submit' , addNewEvent);
+
+timeTable.addEventListener('click' , function(event){
+  if(event.target.tagName === 'LI'){
+    var allP = document.querySelectorAll('table p');
+    for(var i= 0; i < allP.length; i++){
+      console.log(allP[i]);
+      allP[i].style.display = 'none';
+    }
+    event.target.nextElementSibling.style.display = 'block';
+  }
+});
+
+// Logout button.
+function logoutHandler(event) {
+  event.preventDefault();
+  localStorage.removeItem('currentUser');
+}
+
+logoutButton.addEventListener('click', logoutHandler);
