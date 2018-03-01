@@ -2,8 +2,16 @@
   font-size: 1.2em;
 }
 
+body {
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+  font-family: 'Bree Serif', serif;
+  font-size: 1.2em;
+  background: linear-gradient(#78E5EB, #F5F0F2);
+}
+
 header {
-  background-color: #E12D53;
+  background: linear-gradient(#4C8DCA, #78E5EB);
   height:30%;
   width: 100%;
   text-align: center;
@@ -20,10 +28,6 @@ header {
 
 nav button {
   float: right;
-}
-
-body {
-background: linear-gradient(to right, #78E5EB 10%, white 25%,white 50%, #E12D53 100%);
 }
 
 h1 {
@@ -79,7 +83,7 @@ perspective: 700;
 }
 
 section .card {
-  font-size: 1.7em;
+  font-size: 1.3em;
   line-height: 1.2em;
   position: relative;
   text-align: center;
