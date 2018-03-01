@@ -7,7 +7,7 @@ body {
   text-align: center;
   font-family: 'Bree Serif', serif;
   font-size: 1.2em;
-  background: linear-gradient(#78E5EB, #F5F0F2);
+  background: linear-gradient(#78E5EB, #F5F0F2, #78E5EB);
 }
 
 header {
@@ -22,21 +22,18 @@ header {
   font-size: 2em;
 }
 
-/* nav {
-    outline: 2px solid orange;
-} */
-
 nav button {
   float: right;
 }
 
 h1 {
 	font-family: 'Permanent Marker', cursive;
-	font-size: 42pt;
+	font-size: 2em;
 }
+
 h2, h3 {
 	font-family: 'Permanent Marker', cursive;
-	font-size: 24pt;
+	font-size: 1.5em;
 }
 
 #pictures-column-one, #pictures-column-two {
@@ -54,30 +51,11 @@ h2, h3 {
 	text-align: justify;
 }
 
-footer{
-  height: 100px;
-  width: 100%;
-  background-color: #E12D53;
-}
-
-.footer-left {
-  float: left;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  background-color: #E12D53;
-  text-align: center;
-}
-
-.footer-right {
-    float:right;
-}
-
 figure img {
   width: 400px;
   height: 400px;
 }
+
 .card-container{
 perspective: 700;
 }
@@ -94,9 +72,11 @@ section .card {
   transition: all 0.6s ease;
   transform-style: preserve-3d;
 }
+
 section .card:hover{
   transform: rotateY(180deg);
 }
+
 .front, .back {
   position: absolute;
   top: 0;
@@ -105,8 +85,28 @@ section .card:hover{
   height: 400px;
   backface-visibility: hidden;
 }
+
 .back{
   margin-top: 40px;
   margin-left: -20px;
   transform: rotateY(180deg);
+}
+
+footer {
+  height: 100px;
+  width: 100%;
+  background: linear-gradient(#78E5EB, #4C8DCA);
+}
+
+.footer-left {
+  float: left;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+}
+
+.footer-right {
+    float:right;
 }
