@@ -2,20 +2,12 @@
 //++++++++++++++++++++++++++++++
 // GLOBAL DATA
 //++++++++++++++++++++++++++++++
-// Initialize Quill editor
-// var quill = new Quill('#editor', {
-//   modules: { toolbar: true },
-//   theme: 'snow'
-// });
-if(!localStorage.currentUser){
-  window.location = 'index.html';
-}
+
 
 Tater.allTots = [];
 Tater.daySlots = [[],[],[],[],[],[],[]];
 var addEventForm = document.getElementById('addEvent');
 var timeTable = document.getElementById('time-table');
-var currentUser = '';
 // Create global variable for logout button.
 var logoutButton = document.getElementById('logout');
 
@@ -79,35 +71,8 @@ Tater.prototype.render = function() { // Render prototype
 //     return a.moment._d - b.moment._d;
 //   });
 // }
-// Store array function
-function setTaters(){
-  localStorage.setItem(currentUser , JSON.stringify(Tater.daySlots));
-}
 
-// // Get array function
-function getTaters(){
-  if(gotTaters){
-    var gotTaters = localStorage.getItem('allTots');
-    Tater.daySlots = JSON.parse(gotTaters);
-  }
-  var thisUser = localStorage.getItem('currentUser');
-  currentUser = JSON.parse(thisUser);
-}
 
-function getUserTaters(){
-  getTaters();
-  for(var i = 0; i < localStorage.length; i++){
-    if(localStorage.key(i) === currentUser){
-      var myTaters = localStorage.getItem(currentUser);
-      Tater.daySlots = JSON.parse(myTaters);
-      for(var j = 0; j < Tater.daySlots.length; j++){
-        for(var k = 0; k < Tater.daySlots[j].length; k++){
-          Tater.prototype.render();
-        }
-      }
-    }
-  }
-}
 
 //Clock function to keep track of time with date function.
 function navClock(){
@@ -170,14 +135,13 @@ function addNewEvent(event) {
 
   new Tater(name, details, year, month, day, hours);
   Tater.prototype.render();
-  setTaters();
 }
 
 //++++++++++++++++++++++++++++++
 // EXECUTES ON PAGE LOAD
 //++++++++++++++++++++++++++++++
-// makeTestEvents();
-getUserTaters();
+makeTestEvents();
+
 navClock();
 
 addEventForm.addEventListener('submit' , addNewEvent);
@@ -196,7 +160,6 @@ timeTable.addEventListener('click' , function(event){
 // Logout button.
 function logoutHandler(event) {
   event.preventDefault();
-  localStorage.removeItem('currentUser');
   window.location = 'index.html';
 }
 
