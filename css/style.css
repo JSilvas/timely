@@ -1,5 +1,5 @@
 * {
-  /* outline: dotted yellow 2px; */
+  scroll-behavior: smooth;
 }
 body, html {
   height: 100%;
