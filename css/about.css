@@ -16,6 +16,13 @@ header {
   width: 100%;
   text-align: center;
 }
+.header-left {
+  text-align: left;
+  font-family: 'Pacifico', cursive;
+  font-size: 1em;
+  color: #F5F0F2;
+  text-shadow: -1px 2px #17468A;
+}
 
 #clock {
   height: 50px;
