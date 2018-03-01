@@ -162,10 +162,10 @@ function addNewEvent(event) {
 
   var name = event.target.eventName.value;
   var details = event.target.details.value;
-  var year = event.target.year.valueAsNumber;
-  var month = event.target.month.valueAsNumber;
-  var day = event.target.day.valueAsNumber;
-  var hours = event.target.hours.valueAsNumber;
+  var year = parseInt(addEventForm.elements[3].value);
+  var month = parseInt(addEventForm.elements[4].value);
+  var day = parseInt(addEventForm.elements[5].value);
+  var hours = parseInt(addEventForm.elements[6].value);
   event.target.reset();
 
   new Tater(name, details, year, month, day, hours);
