@@ -7,6 +7,9 @@
 //   modules: { toolbar: true },
 //   theme: 'snow'
 // });
+if(!localStorage.currentUser){
+  window.location = 'index.html';
+}
 
 Tater.allTots = [];
 Tater.daySlots = [[],[],[],[],[],[],[]];
