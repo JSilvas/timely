@@ -28,7 +28,7 @@ function loginHandler(event) {
   var password = event.target.password.value;
   currentUser = name.toLowerCase();
   //check if current user is in array of all users
-  for(var i = 0; i < User.allUsers.length; i++){//if statement to check if pass matches user.
+  for(var i = 0; i < User.allUsers.length; i++){//if statement to check if password matches user.
     if(User.allUsers[i].username === name.toLowerCase() && User.allUsers[i].password !== password){
       alert('The Password does not match with UserName');
       event.target.reset();
