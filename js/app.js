@@ -60,8 +60,9 @@ function checkStoredUsers(){
     }
   }
   if(localStorage.currentUser){
-    currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    // goToTimeline();
+    var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    User.currentUser = currentUser;
+    goToTimeline();
   }
 }
 function goToTimeline(){
