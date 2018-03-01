@@ -47,7 +47,6 @@ nav ul li:first-child {
   font-size: 1.3em;
 }
 nav ul li:last-child {
-  outline: dotted orange ;
   box-sizing: border-box;
   float: right;
 }
@@ -124,5 +123,5 @@ fieldset {
 }
 
 form{
-  color: white;
+  color: #f5f0f2;
 }
