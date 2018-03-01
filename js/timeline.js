@@ -12,8 +12,9 @@ Tater.allTots = [];
 Tater.daySlots = [[],[],[],[],[],[],[]];
 var addEventForm = document.getElementById('addEvent');
 var timeTable = document.getElementById('time-table');
-var zeroTots = document.getElementById('day0');
 var currentUser = '';
+// Create global variable for logout button.
+var logoutButton = document.getElementById('logout');
 
 // var header = document.getElementById('header');
 
@@ -88,7 +89,6 @@ function getTaters(){
   }
   var thisUser = localStorage.getItem('currentUser');
   currentUser = JSON.parse(thisUser);
-
 }
 
 function getUserTaters(){
@@ -97,7 +97,6 @@ function getUserTaters(){
     if(localStorage.key(i) === currentUser){
       var myTaters = localStorage.getItem(currentUser);
       Tater.daySlots = JSON.parse(myTaters);
-      console.log('found you');
       for(var j = 0; j < Tater.daySlots.length; j++){
         for(var k = 0; k < Tater.daySlots[j].length; k++){
           Tater.prototype.render();
@@ -149,7 +148,6 @@ function makeTestEvents() {
 // INSTANCES
 //++++++++++++++++++++++++++++++
 
-
 // Form event listener
 
 function addNewEvent(event) {
@@ -180,8 +178,9 @@ getUserTaters();
 navClock();
 
 addEventForm.addEventListener('submit' , addNewEvent);
+
 timeTable.addEventListener('click' , function(event){
-  if(event.target.tagName === "LI"){
+  if(event.target.tagName === 'LI'){
     var allP = document.querySelectorAll('table p');
     for(var i= 0; i < allP.length; i++){
       console.log(allP[i]);
@@ -190,3 +189,11 @@ timeTable.addEventListener('click' , function(event){
     event.target.nextElementSibling.style.display = 'block';
   }
 });
+
+// Logout button.
+function logoutHandler(event) {
+  event.preventDefault();
+  localStorage.removeItem('currentUser');
+}
+
+logoutButton.addEventListener('click', logoutHandler);
