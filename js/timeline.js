@@ -63,6 +63,7 @@ Tater.prototype.render = function() { // Render prototype
     allDays[i].innerHTML = '';
     for (var j = 0; j < Tater.daySlots[i].length; j++) {
       var liEl = document.createElement('li');
+
       var listHour = Tater.daySlots[i][j].hours;
       switch(listHour){
       case 0:
@@ -75,7 +76,71 @@ Tater.prototype.render = function() { // Render prototype
         listHour = '2:00 AM';
         break;
       case 3:
-      
+        listHour = '3:00 AM';
+        break;
+      case 4:
+        listHour = '4:00 AM';
+        break;
+      case 5:
+        listHour = '5:00 AM';
+        break;
+      case 6:
+        listHour = '6:00 AM';
+        break;
+      case 7:
+        listHour = '7:00 AM';
+        break;
+      case 8:
+        listHour = '8:00 AM';
+        break;
+      case 9:
+        listHour = '9:00 AM';
+        break;
+      case 10:
+        listHour = '10:00 AM';
+        break;
+      case 11:
+        listHour = '11:00 AM';
+        break;
+      case 12:
+        listHour = '12:00 PM';
+        break;
+      case 13:
+        listHour = '1:00 PM';
+        break;
+      case 14:
+        listHour = '2:00 PM';
+        break;
+      case 15:
+        listHour = '3:00 PM';
+        break;
+      case 16:
+        listHour = '4:00 PM';
+        break;
+      case 17:
+        listHour = '5:00 PM';
+        break;
+      case 18:
+        listHour = '6:00 PM';
+        break;
+      case 19:
+        listHour = '7:00 PM';
+        break;
+      case 20:
+        listHour = '8:00 PM';
+        break;
+      case 21:
+        listHour = '9:00 PM';
+        break;
+      case 22: 
+        listHour = '10:00 PM';
+        break;
+      case 23:
+        listHour = '11:00 PM';
+        break;
+      default:
+        listHour = '';
+        break;
       }
       liEl.innerHTML = Tater.daySlots[i][j].name + '</br>' + listHour; 
       var ijIndex = [i, j];
