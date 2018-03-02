@@ -2,6 +2,11 @@
 //++++++++++++++++++++++++++++++
 // GLOBAL DATA
 //++++++++++++++++++++++++++++++
+// Initialize Quill editor
+// var quill = new Quill('#editor', {
+//   modules: { toolbar: true },
+//   theme: 'snow'
+// });
 if(!localStorage.currentUser){
   window.location = 'index.html';
 }
@@ -13,6 +18,9 @@ var timeTable = document.getElementById('time-table');
 var currentUser = '';
 // Create global variable for logout button.
 var logoutButton = document.getElementById('logout');
+
+// var header = document.getElementById('header');
+
 //++++++++++++++++++++++++++++++
 // CONSTRUCTORS
 //++++++++++++++++++++++++++++++
@@ -38,6 +46,7 @@ Tater.prototype.sortTaters = function() {
       Tater.daySlots[(i - 1)].push(this);
       return;
     }
+    console.log('I added an event to ' + this.day);
   }
 };
 Tater.prototype.render = function() { // Render prototype
@@ -54,7 +63,21 @@ Tater.prototype.render = function() { // Render prototype
     allDays[i].innerHTML = '';
     for (var j = 0; j < Tater.daySlots[i].length; j++) {
       var liEl = document.createElement('li');
-      liEl.innerHTML = Tater.daySlots[i][j].name + '</br>' + moment(Tater.daySlots[[i][j]].hours).format('LT'); 
+      var listHour = Tater.daySlots[i][j].hours;
+      switch(listHour){
+      case 0:
+        listHour = '12:00 AM';
+        break;
+      case 1:
+        listHour = '1:00 AM';
+        break;
+      case 2:
+        listHour = '2:00 AM';
+        break;
+      case 3:
+      
+      }
+      liEl.innerHTML = Tater.daySlots[i][j].name + '</br>' + listHour; 
       var ijIndex = [i, j];
       Tater.daySlots[i][j].index = ijIndex;
       liEl.id = Tater.daySlots[i][j].index;
@@ -71,7 +94,6 @@ Tater.prototype.render = function() { // Render prototype
 //++++++++++++++++++++++++++++++
 // FUNCTION DECLARATIONS
 //++++++++++++++++++++++++++++++
-<<<<<<< HEAD
 // Sort event array function
 // function sortTaters(){
 //   for(var i = 0; i < Tater.daySlots.length; i++) {
@@ -83,9 +105,6 @@ Tater.prototype.render = function() { // Render prototype
 //     }
 //   }
 // }
-=======
-
->>>>>>> af0768c208f0244cb1081e948242b3b7d390202a
 // Store array function
 function setTaters(){
   localStorage.setItem(currentUser , JSON.stringify(Tater.daySlots));
@@ -237,21 +256,5 @@ function logoutHandler(event) {
   localStorage.removeItem('currentUser');
   window.location = 'index.html';
 }
+
 logoutButton.addEventListener('click', logoutHandler);
-
-function welcomeUser(){
-  var myDate = new Date();
-  var hrs = myDate.getHours();
-
-  var greet;
-
-  if (hrs < 12)
-    greet = 'Good Morning';
-  else if (hrs >= 12 && hrs <= 17)
-    greet = 'Good Afternoon';
-  else if (hrs >= 17 && hrs <= 24)
-    greet = 'Good Evening';
-
-  document.getElementById('greetings').innerHTML = greet + ' ' + currentUser.charAt(0).toUpperCase() + currentUser.slice(1) + ' and welcome Timely';
-}
-welcomeUser();
