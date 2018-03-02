@@ -160,16 +160,17 @@ Tater.prototype.render = function() { // Render prototype
 // FUNCTION DECLARATIONS
 //++++++++++++++++++++++++++++++
 // Sort event array function
-// function sortTaters(){
-//   for(var i = 0; i < Tater.daySlots.length; i++) {
-//     for (var j = 0; j < Tater.daySlots[i].length; j++) {
-//       Tater.daySlots[i][j].moment = new Date (Tater.daySlots[i][j].moment);
-//       Tater.daySlots.sort(function(a, b){
-//         return a.moment- b.moment;
-//       });
-//     }
-//   }
-// }
+function sortTaters(){
+  for(var i = 0; i < Tater.daySlots.length; i++) {
+    for (var j = 0; j < Tater.daySlots[i].length; j++) {
+      
+      Tater.daySlots[i].sort(function(a, b){
+        return a.moment- b.moment;
+      });
+    }
+  }
+}
+
 // Store array function
 function setTaters(){
   localStorage.setItem(currentUser , JSON.stringify(Tater.daySlots));
@@ -193,6 +194,12 @@ function getUserTaters(){
       Tater.daySlots = JSON.parse(myTaters);
       for(var j = 0; j < Tater.daySlots.length; j++){
         for(var k = 0; k < Tater.daySlots[j].length; k++){
+         
+          var blahBlah = Tater.daySlots[j][k].moment;
+       
+          Tater.daySlots[j][k].moment = new Date (blahBlah);
+         
+          sortTaters();
           Tater.prototype.render();
         }
       }
@@ -246,7 +253,7 @@ function makeTestEvents() {
 
 function addNewEvent(event) {
   event.preventDefault();
-  console.log('log of the event.target: ', event.target);
+
   if (!event.target.eventName.value || !event.target.year.value || !event.target.month.value || !event.target.day.value || !event.target.hours.value) {
     return alert('Please enter a name, date, and hour.');
   }
@@ -260,6 +267,7 @@ function addNewEvent(event) {
   event.target.reset();
 
   new Tater(name, details, year, month, day, hours);
+  sortTaters();
   Tater.prototype.render();
   setTaters();
 }
