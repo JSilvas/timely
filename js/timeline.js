@@ -224,8 +224,8 @@ function logoutHandler(event) {
   localStorage.removeItem('currentUser');
   window.location = 'index.html';
 }
-
 logoutButton.addEventListener('click', logoutHandler);
+
 function welcomeUser(){
   var myDate = new Date();
   var hrs = myDate.getHours();
