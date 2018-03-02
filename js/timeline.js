@@ -132,7 +132,7 @@ Tater.prototype.render = function() { // Render prototype
       case 21:
         listHour = '9:00 PM';
         break;
-      case 22: 
+      case 22:
         listHour = '10:00 PM';
         break;
       case 23:
@@ -142,7 +142,7 @@ Tater.prototype.render = function() { // Render prototype
         listHour = '';
         break;
       }
-      liEl.innerHTML = Tater.daySlots[i][j].name + '</br>' + listHour; 
+      liEl.innerHTML = Tater.daySlots[i][j].name + '</br>' + listHour;
       var ijIndex = [i, j];
       Tater.daySlots[i][j].index = ijIndex;
       liEl.id = Tater.daySlots[i][j].index;
@@ -294,9 +294,9 @@ timeTable.addEventListener('dblclick', function(event){
   if(event.target.tagName === 'LI'){
     var removeMe = event.target;
     deleteMe(removeMe.id);
-    removeMe.nextElementSibling.remove(); 
+    removeMe.nextElementSibling.remove();
     removeMe.parentNode.removeChild(removeMe);
-   
+
   }
   setTaters();
   getUserTaters();
@@ -334,4 +334,4 @@ function welcomeUser(){
 
   document.getElementById('greetings').innerHTML = greet + ' ' + currentUser.charAt(0).toUpperCase() + currentUser.slice(1) + ' and welcome to your Timely';
 }
-welcomeUser(); 
+welcomeUser();

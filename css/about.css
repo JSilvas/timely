@@ -129,7 +129,7 @@ section .card:hover{
   backface-visibility: hidden;
 }
 .back{
-  margin-top: 40px;
+  margin-top: 0px;
   margin-left: -20px;
   transform: rotateY(180deg);
 }
@@ -141,15 +141,44 @@ figure p {
 }
 
 footer {
-  height: 250px;
+  height: 350px;
   background: #00AFFF;
+  text-align: center;
 }
+
+footer ul {
+  margin: 0px;
+  padding-top: 50px;
+}
+
+footer li{
+  margin:0px;
+}
+
+footer div p{
+  margin: 0px;
+}
+
 .footer-left {
   float: left;
-  padding: 1em;
-  text-align: center;
+  padding-top: 5px;
+  margin-top: 0px;
 }
 
 .footer-right {
     float:right;
+    margin-top: -10px;
+    padding-top: 0px;
 }
+
+.footer-right img {
+  margin-top:0px;
+  padding-top: 0px;
+}
+
+.footer-center {
+  float: center;
+  margin-top: 0;
+}
+
+
