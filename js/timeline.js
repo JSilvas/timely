@@ -32,6 +32,7 @@ function Tater(name, details, year, month, day, hours){
   this.day = day;
   this.hours = hours;
   this.moment = moment([this.year, this.month, this.day, this.hours]);
+  this.moment = new Date(this.moment._d);
   this.index = [];
   this.sortTaters();
 }
@@ -62,14 +63,12 @@ Tater.prototype.render = function() { // Render prototype
     allDays[i].innerHTML = '';
     for (var j = 0; j < Tater.daySlots[i].length; j++) {
       var liEl = document.createElement('li');
-
-      liEl.textContent = Tater.daySlots[i][j].name; // + We need to show the time of each event as well
+      liEl.innerHTML = Tater.daySlots[i][j].name + '</br>' + moment(Tater.daySlots[[i][j]].hours).format('LT'); 
       var ijIndex = [i, j];
       Tater.daySlots[i][j].index = ijIndex;
       liEl.id = Tater.daySlots[i][j].index;
-
-
       allDays[i].appendChild(liEl);
+
       liEl = document.createElement('p');
       liEl.textContent = Tater.daySlots[i][j].details;
       allDays[i].appendChild(liEl);
@@ -83,9 +82,14 @@ Tater.prototype.render = function() { // Render prototype
 //++++++++++++++++++++++++++++++
 // Sort event array function
 // function sortTaters(){
-//   allTots.sort(function(a, b){
-//     return a.moment._d - b.moment._d;
-//   });
+//   for(var i = 0; i < Tater.daySlots.length; i++) {
+//     for (var j = 0; j < Tater.daySlots[i].length; j++) {
+//       Tater.daySlots[i][j].moment = new Date (Tater.daySlots[i][j].moment);
+//       Tater.daySlots.sort(function(a, b){
+//         return a.moment- b.moment;
+//       });
+//     }
+//   }
 // }
 // Store array function
 function setTaters(){
