@@ -24,7 +24,7 @@ function saveCurrentUser() {
 //Handler to git user from LS if in, or create new user and add to array if not.
 function loginHandler(event) {
   event.preventDefault();
-  var name = event.target.user.value;
+  var name = event.target.user.value.trim();
   var password = event.target.password.value;
   currentUser = name.toLowerCase();
   //check if current user is in array of all users
