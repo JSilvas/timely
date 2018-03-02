@@ -2,11 +2,26 @@
   font-size: 1.2em;
 }
 
+body {
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+  font-family: 'Bree Serif', serif;
+  font-size: 1.2em;
+  background: linear-gradient(#78E5EB, #F5F0F2, #78E5EB);
+}
+
 header {
-  background-color: #E12D53;
+  background: linear-gradient(#4C8DCA, #78E5EB);
   height:30%;
   width: 100%;
   text-align: center;
+}
+.header-left {
+  text-align: left;
+  font-family: 'Pacifico', cursive;
+  font-size: 1em;
+  color: #F5F0F2;
+  text-shadow: -1px 2px #17468A;
 }
 
 #clock {
@@ -14,25 +29,18 @@ header {
   font-size: 2em;
 }
 
-/* nav {
-    outline: 2px solid orange;
-} */
-
 nav button {
   float: right;
 }
 
-body {
-background: linear-gradient(to right, #78E5EB 10%, white 25%,white 50%, #E12D53 100%);
-}
-
 h1 {
 	font-family: 'Permanent Marker', cursive;
-	font-size: 42pt;
+	font-size: 2em;
 }
+
 h2, h3 {
 	font-family: 'Permanent Marker', cursive;
-	font-size: 24pt;
+	font-size: 1.5em;
 }
 
 #pictures-column-one, #pictures-column-two {
@@ -50,36 +58,17 @@ h2, h3 {
 	text-align: justify;
 }
 
-footer{
-  height: 100px;
-  width: 100%;
-  background-color: #E12D53;
-}
-
-.footer-left {
-  float: left;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  background-color: #E12D53;
-  text-align: center;
-}
-
-.footer-right {
-    float:right;
-}
-
 figure img {
   width: 400px;
   height: 400px;
 }
+
 .card-container{
 perspective: 700;
 }
 
 section .card {
-  font-size: 1.7em;
+  font-size: 1.3em;
   line-height: 1.2em;
   position: relative;
   text-align: center;
@@ -90,9 +79,11 @@ section .card {
   transition: all 0.6s ease;
   transform-style: preserve-3d;
 }
+
 section .card:hover{
   transform: rotateY(180deg);
 }
+
 .front, .back {
   position: absolute;
   top: 0;
@@ -101,8 +92,28 @@ section .card:hover{
   height: 400px;
   backface-visibility: hidden;
 }
+
 .back{
   margin-top: 40px;
   margin-left: -20px;
   transform: rotateY(180deg);
+}
+
+footer {
+  height: 100px;
+  width: 100%;
+  background: linear-gradient(#78E5EB, #4C8DCA);
+}
+
+.footer-left {
+  float: left;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+}
+
+.footer-right {
+    float:right;
 }

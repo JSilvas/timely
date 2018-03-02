@@ -24,6 +24,7 @@ startClock();
 function logoutHandler(event) {
   event.preventDefault();
   localStorage.removeItem('currentUser');
+  window.location = 'index.html';
 }
 
 logoutButton.addEventListener('click', logoutHandler);
