@@ -216,13 +216,13 @@ function checkTime(i) {
   return i;
 }
 function makeTestEvents() {
-  new Tater('van time' , 'down by the river' , 2018, 2, 1, 4 );
-  new Tater('meet luca' , 'give luca the cement shoes so he can swim with the fishes' , 2018, 2, 1, 12);
-  new Tater('gym' , 'all your base are belong to us' , 2018, 2, 2, 6);
-  new Tater('coffee' , 'go back and look for my phone' , 2018, 2, 3, 6);
-  new Tater('find luca' , 'fish luca out of the river' , 2018, 2, 3, 18 );
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 3, 5);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 3, 9 );
+  new Tater('van time' , 'down by the river' , 2018, 3, 1, 4 );
+  new Tater('meet luca' , 'give luca the cement shoes so he can swim with the fishes' , 2018, 3, 1, 12);
+  new Tater('gym' , 'all your base are belong to us' , 2018, .3, 2, 6);
+  new Tater('coffee' , 'go back and look for my phone' , 2018, 3, 3, 6);
+  new Tater('find luca' , 'fish luca out of the river' , 2018, 3, 4, 18 );
+  new Tater('Shopping' , 'Need to pick up food for week, don\'t forget the milk!!' , 2018, 3, 3, 5);
+  new Tater('Walk' , 'Make sure to walk the Dog at 9' , 2018, .3, 3, 9 );
   new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 4, 3 );
   new Tater('Feed Demi' , 'Make sure pupper is fed' , 2018, 2, 4, 23);
   new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 5, 18);
@@ -267,7 +267,7 @@ function addNewEvent(event) {
 //++++++++++++++++++++++++++++++
 // EXECUTES ON PAGE LOAD
 //++++++++++++++++++++++++++++++
-// makeTestEvents();
+makeTestEvents();
 getUserTaters();
 navClock();
 
