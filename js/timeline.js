@@ -298,9 +298,8 @@ timeTable.addEventListener('dblclick', function(event){
   if(event.target.tagName === 'LI'){
     var removeMe = event.target;
     deleteMe(removeMe.id);
-    removeMe.nextElementSibling.remove();
     removeMe.parentNode.removeChild(removeMe);
-
+    removeMe.nextElementSibling.remove();
   }
   setTaters();
   getUserTaters();
@@ -310,7 +309,7 @@ function deleteMe(takeId){
   for(var i = 0; i < Tater.daySlots.length; i++) {
     for (var j = 0; j < Tater.daySlots[i].length; j++) {
       if(Tater.daySlots[i][j].index.toString() === takeId.toString()){
-        return Tater.daySlots[[i][j]].splice(0, 1);
+        return Tater.daySlots[i].splice(0, 1);
       }
     }
   }
