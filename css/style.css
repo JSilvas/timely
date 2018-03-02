@@ -132,6 +132,10 @@ main section {
   width: 60%;
   margin: auto;
 }
+main section p{
+  margin: 40px;
+  font-size: 1.1em;
+}
 form {
   margin: 5%;
 }
