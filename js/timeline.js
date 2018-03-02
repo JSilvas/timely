@@ -32,6 +32,7 @@ function Tater(name, details, year, month, day, hours){
   this.day = day;
   this.hours = hours;
   this.moment = moment([this.year, this.month, this.day, this.hours]);
+  this.moment = new Date(this.moment._d);
   this.index = [];
   this.sortTaters();
 }
@@ -63,13 +64,90 @@ Tater.prototype.render = function() { // Render prototype
     for (var j = 0; j < Tater.daySlots[i].length; j++) {
       var liEl = document.createElement('li');
 
-      liEl.textContent = Tater.daySlots[i][j].name; // + We need to show the time of each event as well
+      var listHour = Tater.daySlots[i][j].hours;
+      switch(listHour){
+      case 0:
+        listHour = '12:00 AM';
+        break;
+      case 1:
+        listHour = '1:00 AM';
+        break;
+      case 2:
+        listHour = '2:00 AM';
+        break;
+      case 3:
+        listHour = '3:00 AM';
+        break;
+      case 4:
+        listHour = '4:00 AM';
+        break;
+      case 5:
+        listHour = '5:00 AM';
+        break;
+      case 6:
+        listHour = '6:00 AM';
+        break;
+      case 7:
+        listHour = '7:00 AM';
+        break;
+      case 8:
+        listHour = '8:00 AM';
+        break;
+      case 9:
+        listHour = '9:00 AM';
+        break;
+      case 10:
+        listHour = '10:00 AM';
+        break;
+      case 11:
+        listHour = '11:00 AM';
+        break;
+      case 12:
+        listHour = '12:00 PM';
+        break;
+      case 13:
+        listHour = '1:00 PM';
+        break;
+      case 14:
+        listHour = '2:00 PM';
+        break;
+      case 15:
+        listHour = '3:00 PM';
+        break;
+      case 16:
+        listHour = '4:00 PM';
+        break;
+      case 17:
+        listHour = '5:00 PM';
+        break;
+      case 18:
+        listHour = '6:00 PM';
+        break;
+      case 19:
+        listHour = '7:00 PM';
+        break;
+      case 20:
+        listHour = '8:00 PM';
+        break;
+      case 21:
+        listHour = '9:00 PM';
+        break;
+      case 22: 
+        listHour = '10:00 PM';
+        break;
+      case 23:
+        listHour = '11:00 PM';
+        break;
+      default:
+        listHour = '';
+        break;
+      }
+      liEl.innerHTML = Tater.daySlots[i][j].name + '</br>' + listHour; 
       var ijIndex = [i, j];
       Tater.daySlots[i][j].index = ijIndex;
       liEl.id = Tater.daySlots[i][j].index;
-
-
       allDays[i].appendChild(liEl);
+
       liEl = document.createElement('p');
       liEl.textContent = Tater.daySlots[i][j].details;
       allDays[i].appendChild(liEl);
@@ -82,11 +160,17 @@ Tater.prototype.render = function() { // Render prototype
 // FUNCTION DECLARATIONS
 //++++++++++++++++++++++++++++++
 // Sort event array function
-// function sortTaters(){
-//   allTots.sort(function(a, b){
-//     return a.moment._d - b.moment._d;
-//   });
-// }
+function sortTaters(){
+  for(var i = 0; i < Tater.daySlots.length; i++) {
+    for (var j = 0; j < Tater.daySlots[i].length; j++) {
+      
+      Tater.daySlots[i].sort(function(a, b){
+        return a.moment- b.moment;
+      });
+    }
+  }
+}
+
 // Store array function
 function setTaters(){
   localStorage.setItem(currentUser , JSON.stringify(Tater.daySlots));
@@ -110,6 +194,12 @@ function getUserTaters(){
       Tater.daySlots = JSON.parse(myTaters);
       for(var j = 0; j < Tater.daySlots.length; j++){
         for(var k = 0; k < Tater.daySlots[j].length; k++){
+         
+          var blahBlah = Tater.daySlots[j][k].moment;
+       
+          Tater.daySlots[j][k].moment = new Date (blahBlah);
+         
+          sortTaters();
           Tater.prototype.render();
         }
       }
@@ -133,25 +223,18 @@ function checkTime(i) {
   return i;
 }
 function makeTestEvents() {
-  new Tater('van time' , 'down by the river' , 2018, 2, 1, 4 );
-  new Tater('meet luca' , 'give luca the cement shoes so he can swim with the fishes' , 2018, 2, 1, 12);
-  new Tater('gym' , 'all your base are belong to us' , 2018, 2, 2, 6);
-  new Tater('coffee' , 'go back and look for my phone' , 2018, 2, 3, 6);
-  new Tater('find luca' , 'fish luca out of the river' , 2018, 2, 3, 18 );
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 3, 5);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 3, 9 );
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 4, 3 );
-  new Tater('Feed Demi' , 'Make sure pupper is fed' , 2018, 2, 4, 23);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 5, 18);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 5, 2);
-  new Tater('jail' , 'Bail out Demi, she been a bad doggo' , 2018, 2, 5, 19);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 6, 7);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 6, 5);
-  new Tater('Walk Doggo' , 'Take Demi-Dog for walk in the park' , 2018, 2, 6, 2);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 6, 18);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 6, 12);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 7, 18);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 7, 21);
+  new Tater('van time' , 'down by the river' , 2018, 3, 1, 4 );
+  new Tater('meet luca' , 'give luca the cement shoes so he can swim with the fishes' , 2018, 3, 1, 12);
+  new Tater('gym' , 'all your base are belong to us' , 2018, .3, 2, 6);
+  new Tater('coffee' , 'go back and look for my phone' , 2018, 3, 3, 6);
+  new Tater('find luca' , 'fish luca out of the river' , 2018, 3, 4, 18 );
+  new Tater('Shopping' , 'Need to pick up food for week, don\'t forget the milk!!' , 2018, 3, 3, 5);
+  new Tater('Walk' , 'Make sure to walk the Dog at 9' , 2018, 3, 3, 9 );
+  new Tater('jail' , 'do not pass go or collect $200' , 2018, 3, 4, 3 );
+  new Tater('Feed Demi' , 'Make sure pupper is fed' , 2018, 3, 4, 23);
+  new Tater('Walk Doggo' , 'Take Demi-Dog for walk in the park' , 2018, 3, 6, 2);
+  new Tater('jail' , 'do not pass go or collect $200' , 2018, 3, 6, 18);
+  sortTaters();
   Tater.prototype.render();
 }
 
@@ -163,7 +246,7 @@ function makeTestEvents() {
 
 function addNewEvent(event) {
   event.preventDefault();
-  console.log('log of the event.target: ', event.target);
+
   if (!event.target.eventName.value || !event.target.year.value || !event.target.month.value || !event.target.day.value || !event.target.hours.value) {
     return alert('Please enter a name, date, and hour.');
   }
@@ -177,6 +260,7 @@ function addNewEvent(event) {
   event.target.reset();
 
   new Tater(name, details, year, month, day, hours);
+  sortTaters();
   Tater.prototype.render();
   setTaters();
 }
@@ -184,7 +268,7 @@ function addNewEvent(event) {
 //++++++++++++++++++++++++++++++
 // EXECUTES ON PAGE LOAD
 //++++++++++++++++++++++++++++++
-// makeTestEvents();
+makeTestEvents();
 getUserTaters();
 navClock();
 
@@ -240,3 +324,19 @@ function logoutHandler(event) {
 }
 
 logoutButton.addEventListener('click', logoutHandler);
+
+
+function welcomeUser(){
+  var myDate = new Date();
+  var hrs = myDate.getHours();
+  var greet;
+  if (hrs < 12)
+    greet = 'Good Morning';
+  else if (hrs >= 12 && hrs <= 17)
+    greet = 'Good Afternoon';
+  else if (hrs >= 17 && hrs <= 24)
+    greet = 'Good Evening';
+
+  document.getElementById('greetings').innerHTML = greet + ' ' + currentUser.charAt(0).toUpperCase() + currentUser.slice(1) + ' and welcome to your Timely';
+}
+welcomeUser(); 
