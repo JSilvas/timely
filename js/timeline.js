@@ -229,19 +229,12 @@ function makeTestEvents() {
   new Tater('coffee' , 'go back and look for my phone' , 2018, 3, 3, 6);
   new Tater('find luca' , 'fish luca out of the river' , 2018, 3, 4, 18 );
   new Tater('Shopping' , 'Need to pick up food for week, don\'t forget the milk!!' , 2018, 3, 3, 5);
-  new Tater('Walk' , 'Make sure to walk the Dog at 9' , 2018, .3, 3, 9 );
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 4, 3 );
-  new Tater('Feed Demi' , 'Make sure pupper is fed' , 2018, 2, 4, 23);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 5, 18);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 5, 2);
-  new Tater('jail' , 'Bail out Demi, she been a bad doggo' , 2018, 2, 5, 19);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 6, 7);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 6, 5);
-  new Tater('Walk Doggo' , 'Take Demi-Dog for walk in the park' , 2018, 2, 6, 2);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 6, 18);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 6, 12);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 7, 18);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 7, 21);
+  new Tater('Walk' , 'Make sure to walk the Dog at 9' , 2018, 3, 3, 9 );
+  new Tater('jail' , 'do not pass go or collect $200' , 2018, 3, 4, 3 );
+  new Tater('Feed Demi' , 'Make sure pupper is fed' , 2018, 3, 4, 23);
+  new Tater('Walk Doggo' , 'Take Demi-Dog for walk in the park' , 2018, 3, 6, 2);
+  new Tater('jail' , 'do not pass go or collect $200' , 2018, 3, 6, 18);
+  sortTaters();
   Tater.prototype.render();
 }
 
@@ -344,6 +337,6 @@ function welcomeUser(){
   else if (hrs >= 17 && hrs <= 24)
     greet = 'Good Evening';
 
-  document.getElementById('greetings').innerHTML = greet + ' ' + currentUser.charAt(0).toUpperCase() + currentUser.slice(1) + ' and welcome Timely';
+  document.getElementById('greetings').innerHTML = greet + ' ' + currentUser.charAt(0).toUpperCase() + currentUser.slice(1) + ' and welcome to your Timely';
 }
 welcomeUser(); 
