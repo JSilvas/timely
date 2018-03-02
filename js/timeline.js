@@ -32,6 +32,7 @@ function Tater(name, details, year, month, day, hours){
   this.day = day;
   this.hours = hours;
   this.moment = moment([this.year, this.month, this.day, this.hours]);
+  this.index = [];
   this.sortTaters();
 }
 //++++++++++++++++++++++++++++++
@@ -61,11 +62,18 @@ Tater.prototype.render = function() { // Render prototype
     allDays[i].innerHTML = '';
     for (var j = 0; j < Tater.daySlots[i].length; j++) {
       var liEl = document.createElement('li');
+
       liEl.textContent = Tater.daySlots[i][j].name; // + We need to show the time of each event as well
+      var ijIndex = [i, j];
+      Tater.daySlots[i][j].index = ijIndex;
+      liEl.id = Tater.daySlots[i][j].index;
+
+
       allDays[i].appendChild(liEl);
       liEl = document.createElement('p');
       liEl.textContent = Tater.daySlots[i][j].details;
       allDays[i].appendChild(liEl);
+
     }
   }
 };
@@ -186,12 +194,43 @@ timeTable.addEventListener('click' , function(event){
   if(event.target.tagName === 'LI'){
     var allP = document.querySelectorAll('table p');
     for(var i= 0; i < allP.length; i++){
-      console.log(allP[i]);
       allP[i].style.display = 'none';
     }
     event.target.nextElementSibling.style.display = 'block';
   }
 });
+
+timeTable.addEventListener('mouseover' , function(event){
+  if(event.target.tagName === 'LI'){
+    event.target.style.backgroundColor = 'pink';
+    setTimeout(function(){
+      event.target.style.backgroundColor = 'white';
+      event.target.style.color = 'black';
+    }, 100);
+  }
+});
+
+timeTable.addEventListener('dblclick', function(event){
+  if(event.target.tagName === 'LI'){
+    var removeMe = event.target;
+    deleteMe(removeMe.id);
+    removeMe.nextElementSibling.remove();
+    removeMe.parentNode.removeChild(removeMe);
+
+  }
+  setTaters();
+  getUserTaters();
+});
+
+function deleteMe(takeId){
+  for(var i = 0; i < Tater.daySlots.length; i++) {
+    for (var j = 0; j < Tater.daySlots[i].length; j++) {
+      if(Tater.daySlots[i][j].index.toString() === takeId.toString()){
+        return Tater.daySlots[[i][j]].splice(0, 1);
+      }
+    }
+  }
+}
 
 // Logout button.
 function logoutHandler(event) {
