@@ -229,27 +229,11 @@ function makeTestEvents() {
   new Tater('coffee' , 'go back and look for my phone' , 2018, 3, 3, 6);
   new Tater('find luca' , 'fish luca out of the river' , 2018, 3, 4, 18 );
   new Tater('Shopping' , 'Need to pick up food for week, don\'t forget the milk!!' , 2018, 3, 3, 5);
-<<<<<<< HEAD
-  new Tater('Walk' , 'Make sure to walk the Dog at 9' , 2018, .3, 3, 9 );
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 4, 3 );
-  new Tater('Feed Demi' , 'Make sure pupper is fed' , 2018, 2, 4, 23);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 5, 18);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 5, 2);
-  new Tater('jail' , 'Bail out Demi, she been a bad doggo' , 2018, 2, 5, 19);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 6, 7);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 6, 5);
-  new Tater('Walk Doggo' , 'Take Demi-Dog for walk in the park' , 2018, 2, 6, 2);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 6, 18);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 6, 12);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 7, 18);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 7, 21);
-=======
   new Tater('Walk' , 'Make sure to walk the Dog at 9' , 2018, 3, 3, 9 );
   new Tater('jail' , 'do not pass go or collect $200' , 2018, 3, 4, 3 );
   new Tater('Feed Demi' , 'Make sure pupper is fed' , 2018, 3, 4, 23);
   new Tater('Walk Doggo' , 'Take Demi-Dog for walk in the park' , 2018, 3, 6, 2);
   new Tater('jail' , 'do not pass go or collect $200' , 2018, 3, 6, 18);
->>>>>>> fbb406859440a77aa5b59e253ab9c4793a2d9b87
   sortTaters();
   Tater.prototype.render();
 }
@@ -314,9 +298,8 @@ timeTable.addEventListener('dblclick', function(event){
   if(event.target.tagName === 'LI'){
     var removeMe = event.target;
     deleteMe(removeMe.id);
-    removeMe.nextElementSibling.remove();
     removeMe.parentNode.removeChild(removeMe);
-
+    removeMe.nextElementSibling.remove();
   }
   setTaters();
   getUserTaters();
@@ -326,7 +309,7 @@ function deleteMe(takeId){
   for(var i = 0; i < Tater.daySlots.length; i++) {
     for (var j = 0; j < Tater.daySlots[i].length; j++) {
       if(Tater.daySlots[i][j].index.toString() === takeId.toString()){
-        return Tater.daySlots[[i][j]].splice(0, 1);
+        return Tater.daySlots[i].splice(0, 1);
       }
     }
   }
