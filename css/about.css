@@ -93,7 +93,7 @@ main {
 }
 .about-caption {
 	margin-top: 0px;
-	margin-bottom: 50px;
+	margin-bottom: 10px;
 	width: 400px;
 	text-align: justify;
 }
@@ -141,9 +141,11 @@ figure p {
 }
 
 footer {
-  height: 350px;
+  height: 100px;
   background: #00AFFF;
   text-align: center;
+  padding-bottom: 20px;
+  margin-top: 0px;
 }
 
 footer ul {
@@ -161,7 +163,7 @@ footer div p{
 
 .footer-left {
   float: left;
-  padding-top: 5px;
+  padding-top: 0px;
   margin-top: 0px;
 }
 
