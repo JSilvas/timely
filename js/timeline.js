@@ -242,6 +242,7 @@ function makeTestEvents() {
   new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 6, 12);
   new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 7, 18);
   new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 7, 21);
+  sortTaters();
   Tater.prototype.render();
 }
 
