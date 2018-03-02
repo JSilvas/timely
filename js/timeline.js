@@ -132,7 +132,7 @@ Tater.prototype.render = function() { // Render prototype
       case 21:
         listHour = '9:00 PM';
         break;
-      case 22: 
+      case 22:
         listHour = '10:00 PM';
         break;
       case 23:
@@ -142,7 +142,7 @@ Tater.prototype.render = function() { // Render prototype
         listHour = '';
         break;
       }
-      liEl.innerHTML = Tater.daySlots[i][j].name + '</br>' + listHour; 
+      liEl.innerHTML = Tater.daySlots[i][j].name + '</br>' + listHour;
       var ijIndex = [i, j];
       Tater.daySlots[i][j].index = ijIndex;
       liEl.id = Tater.daySlots[i][j].index;
@@ -163,7 +163,6 @@ Tater.prototype.render = function() { // Render prototype
 function sortTaters(){
   for(var i = 0; i < Tater.daySlots.length; i++) {
     for (var j = 0; j < Tater.daySlots[i].length; j++) {
-      
       Tater.daySlots[i].sort(function(a, b){
         return a.moment- b.moment;
       });
@@ -194,11 +193,8 @@ function getUserTaters(){
       Tater.daySlots = JSON.parse(myTaters);
       for(var j = 0; j < Tater.daySlots.length; j++){
         for(var k = 0; k < Tater.daySlots[j].length; k++){
-         
           var blahBlah = Tater.daySlots[j][k].moment;
-       
           Tater.daySlots[j][k].moment = new Date (blahBlah);
-         
           sortTaters();
           Tater.prototype.render();
         }
@@ -310,7 +306,7 @@ function deleteMe(takeId){
   for(var i = 0; i < Tater.daySlots.length; i++) {
     for (var j = 0; j < Tater.daySlots[i].length; j++) {
       if(Tater.daySlots[i][j].index.toString() === takeId.toString()){
-        return Tater.daySlots[[i][j]].splice(0, 1);
+        return Tater.daySlots[i].splice(0, 1);
       }
     }
   }
@@ -325,7 +321,6 @@ function logoutHandler(event) {
 
 logoutButton.addEventListener('click', logoutHandler);
 
-
 function welcomeUser(){
   var myDate = new Date();
   var hrs = myDate.getHours();
@@ -339,4 +334,4 @@ function welcomeUser(){
 
   document.getElementById('greetings').innerHTML = greet + ' ' + currentUser.charAt(0).toUpperCase() + currentUser.slice(1) + ' and welcome to your Timely';
 }
-welcomeUser(); 
+welcomeUser();
