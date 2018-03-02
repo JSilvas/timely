@@ -153,3 +153,7 @@ a {
   color: rgba(255, 255, 255, 0.85);
   box-shadow: #4c8dca 0 0px 0px 40px inset;
 }
+#greetings{
+  font-size: 1.7em;
+  font-weight: bolder;
+}
