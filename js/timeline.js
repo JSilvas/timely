@@ -163,7 +163,6 @@ Tater.prototype.render = function() { // Render prototype
 function sortTaters(){
   for(var i = 0; i < Tater.daySlots.length; i++) {
     for (var j = 0; j < Tater.daySlots[i].length; j++) {
-      
       Tater.daySlots[i].sort(function(a, b){
         return a.moment- b.moment;
       });
@@ -194,11 +193,8 @@ function getUserTaters(){
       Tater.daySlots = JSON.parse(myTaters);
       for(var j = 0; j < Tater.daySlots.length; j++){
         for(var k = 0; k < Tater.daySlots[j].length; k++){
-         
           var blahBlah = Tater.daySlots[j][k].moment;
-       
           Tater.daySlots[j][k].moment = new Date (blahBlah);
-         
           sortTaters();
           Tater.prototype.render();
         }
@@ -298,8 +294,9 @@ timeTable.addEventListener('dblclick', function(event){
   if(event.target.tagName === 'LI'){
     var removeMe = event.target;
     deleteMe(removeMe.id);
+    removeMe.nextElementSibling.remove(); 
     removeMe.parentNode.removeChild(removeMe);
-    removeMe.nextElementSibling.remove();
+   
   }
   setTaters();
   getUserTaters();
@@ -323,7 +320,6 @@ function logoutHandler(event) {
 }
 
 logoutButton.addEventListener('click', logoutHandler);
-
 
 function welcomeUser(){
   var myDate = new Date();

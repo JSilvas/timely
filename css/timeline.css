@@ -157,3 +157,17 @@ a {
   font-size: 1.7em;
   font-weight: bolder;
 }
+button#logout{
+    width: 200px;
+    height: 80px;
+    margin: 20px auto;
+    font-size: 20px;
+    background-color: blueviolet;
+    color: blanchedalmond;
+    border-radius: 15px;
+    vertical-align: middle;
+  }
+  button#logout:hover{
+      background-color: #1766F1;
+      border: 3px solid white;
+    }
