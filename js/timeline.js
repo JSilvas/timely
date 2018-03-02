@@ -2,6 +2,11 @@
 //++++++++++++++++++++++++++++++
 // GLOBAL DATA
 //++++++++++++++++++++++++++++++
+// Initialize Quill editor
+// var quill = new Quill('#editor', {
+//   modules: { toolbar: true },
+//   theme: 'snow'
+// });
 if(!localStorage.currentUser){
   window.location = 'index.html';
 }
@@ -13,6 +18,9 @@ var timeTable = document.getElementById('time-table');
 var currentUser = '';
 // Create global variable for logout button.
 var logoutButton = document.getElementById('logout');
+
+// var header = document.getElementById('header');
+
 //++++++++++++++++++++++++++++++
 // CONSTRUCTORS
 //++++++++++++++++++++++++++++++
@@ -24,6 +32,7 @@ function Tater(name, details, year, month, day, hours){
   this.day = day;
   this.hours = hours;
   this.moment = moment([this.year, this.month, this.day, this.hours]);
+  this.moment = new Date(this.moment._d);
   this.index = [];
   this.sortTaters();
 }
@@ -37,6 +46,7 @@ Tater.prototype.sortTaters = function() {
       Tater.daySlots[(i - 1)].push(this);
       return;
     }
+    console.log('I added an event to ' + this.day);
   }
 };
 Tater.prototype.render = function() { // Render prototype
@@ -54,13 +64,90 @@ Tater.prototype.render = function() { // Render prototype
     for (var j = 0; j < Tater.daySlots[i].length; j++) {
       var liEl = document.createElement('li');
 
-      liEl.textContent = Tater.daySlots[i][j].name; // + We need to show the time of each event as well
+      var listHour = Tater.daySlots[i][j].hours;
+      switch(listHour){
+      case 0:
+        listHour = '12:00 AM';
+        break;
+      case 1:
+        listHour = '1:00 AM';
+        break;
+      case 2:
+        listHour = '2:00 AM';
+        break;
+      case 3:
+        listHour = '3:00 AM';
+        break;
+      case 4:
+        listHour = '4:00 AM';
+        break;
+      case 5:
+        listHour = '5:00 AM';
+        break;
+      case 6:
+        listHour = '6:00 AM';
+        break;
+      case 7:
+        listHour = '7:00 AM';
+        break;
+      case 8:
+        listHour = '8:00 AM';
+        break;
+      case 9:
+        listHour = '9:00 AM';
+        break;
+      case 10:
+        listHour = '10:00 AM';
+        break;
+      case 11:
+        listHour = '11:00 AM';
+        break;
+      case 12:
+        listHour = '12:00 PM';
+        break;
+      case 13:
+        listHour = '1:00 PM';
+        break;
+      case 14:
+        listHour = '2:00 PM';
+        break;
+      case 15:
+        listHour = '3:00 PM';
+        break;
+      case 16:
+        listHour = '4:00 PM';
+        break;
+      case 17:
+        listHour = '5:00 PM';
+        break;
+      case 18:
+        listHour = '6:00 PM';
+        break;
+      case 19:
+        listHour = '7:00 PM';
+        break;
+      case 20:
+        listHour = '8:00 PM';
+        break;
+      case 21:
+        listHour = '9:00 PM';
+        break;
+      case 22: 
+        listHour = '10:00 PM';
+        break;
+      case 23:
+        listHour = '11:00 PM';
+        break;
+      default:
+        listHour = '';
+        break;
+      }
+      liEl.innerHTML = Tater.daySlots[i][j].name + '</br>' + listHour; 
       var ijIndex = [i, j];
       Tater.daySlots[i][j].index = ijIndex;
       liEl.id = Tater.daySlots[i][j].index;
-
-
       allDays[i].appendChild(liEl);
+
       liEl = document.createElement('p');
       liEl.textContent = Tater.daySlots[i][j].details;
       allDays[i].appendChild(liEl);
@@ -72,7 +159,17 @@ Tater.prototype.render = function() { // Render prototype
 //++++++++++++++++++++++++++++++
 // FUNCTION DECLARATIONS
 //++++++++++++++++++++++++++++++
-
+// Sort event array function
+// function sortTaters(){
+//   for(var i = 0; i < Tater.daySlots.length; i++) {
+//     for (var j = 0; j < Tater.daySlots[i].length; j++) {
+//       Tater.daySlots[i][j].moment = new Date (Tater.daySlots[i][j].moment);
+//       Tater.daySlots.sort(function(a, b){
+//         return a.moment- b.moment;
+//       });
+//     }
+//   }
+// }
 // Store array function
 function setTaters(){
   localStorage.setItem(currentUser , JSON.stringify(Tater.daySlots));
@@ -224,21 +321,5 @@ function logoutHandler(event) {
   localStorage.removeItem('currentUser');
   window.location = 'index.html';
 }
+
 logoutButton.addEventListener('click', logoutHandler);
-
-function welcomeUser(){
-  var myDate = new Date();
-  var hrs = myDate.getHours();
-
-  var greet;
-
-  if (hrs < 12)
-    greet = 'Good Morning';
-  else if (hrs >= 12 && hrs <= 17)
-    greet = 'Good Afternoon';
-  else if (hrs >= 17 && hrs <= 24)
-    greet = 'Good Evening';
-
-  document.getElementById('greetings').innerHTML = greet + ' ' + currentUser.charAt(0).toUpperCase() + currentUser.slice(1) + ' and welcome Timely';
-}
-welcomeUser();
