@@ -30,15 +30,11 @@ nav ul {
 }
 nav li {
   display: inline-block;
-  line-height: 50px;
   list-style: none;
 }
 nav ul li:first-child {
   float: left;
-}
-nav ul li:last-child {
-  float: right;
-  margin-right: 25px
+  margin: 10px 80px 0 10px;
 }
 #logo {
   opacity: 0.4;
@@ -54,6 +50,7 @@ nav ul li:last-child {
   opacity: 0.4;
   font-family: 'pacifico', cursive;
   font-size: 1.6em;
+  margin: 10px;
 }
 #title {
   font-family: 'pacifico', cursive;
@@ -64,9 +61,6 @@ nav ul li:last-child {
 }
 
 /* ++++ HERO IMAGE AND CONTENT ++++ */
-div {
-  outline: orangered;
-}
 .hero-image {
   background-image: url("https://images.unsplash.com/photo-1494322296366-b46227baa318?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=82a416dbad9ccc2239b010a2be63d6f3&auto=format&fit=crop&w=2855&q=80");
   left: 0px;
@@ -109,7 +103,7 @@ a {
 }
 .button1:hover {
   color: rgba(255, 255, 255, 0.85);
-  box-shadow: #4c8dca 0 0px 0px 40px inset;
+  box-shadow: #00AFFF 0 0px 0px 40px inset;
 }
 .button2 {
   color: #78e5eb;
@@ -119,12 +113,17 @@ a {
 }
 .button2:hover {
   color: rgba(255, 255, 255, 0.85);
-  box-shadow: #4c8dca 0 0px 0px 40px inset;
+  box-shadow: #00AFFF 0 0px 0px 40px inset;
+}
+nav ul li:last-child {
+  float: right;
+  margin-top: -20px;
+  padding: 0;
 }
 
 main {
   height: 80%;
-  background: linear-gradient(to bottom, #19200A 10%, #78e5eb 100%);
+  background: linear-gradient(to bottom, rgb(21, 26, 5) 5%, #78e5eb 100%);
 }
 main section {
   color: #f5f0f2;
@@ -137,8 +136,35 @@ form {
   margin: 5%;
 }
 
-hr {
-  line: dotted;
+fieldset input {
+  font-weight: bold;
+  width: 230px;
+  margin: 0 35px 20px ;
+  height: 45px;
+  padding: 6px 15px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background: #f5f0f2;
+  color: #17468a;
+  font-size: 1em;
+}
+fieldset input:last-child {
+  font-weight: bold;
+  width: 150px;
+  margin: 0 35px 20px ;
+  height: 45px;
+  padding: 6px 15px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background: #4c8cda;
+  color: whitesmoke;
+  font-size: 1em;  
+}
+fieldset input:last-child:hover {
+  color: white;
+  box-shadow: #e1235d 0 0px 0px 40px inset;
 }
 footer {
   height: 20%;
