@@ -160,16 +160,17 @@ Tater.prototype.render = function() { // Render prototype
 // FUNCTION DECLARATIONS
 //++++++++++++++++++++++++++++++
 // Sort event array function
-// function sortTaters(){
-//   for(var i = 0; i < Tater.daySlots.length; i++) {
-//     for (var j = 0; j < Tater.daySlots[i].length; j++) {
-//       Tater.daySlots[i][j].moment = new Date (Tater.daySlots[i][j].moment);
-//       Tater.daySlots.sort(function(a, b){
-//         return a.moment- b.moment;
-//       });
-//     }
-//   }
-// }
+function sortTaters(){
+  for(var i = 0; i < Tater.daySlots.length; i++) {
+    for (var j = 0; j < Tater.daySlots[i].length; j++) {
+      
+      Tater.daySlots[i].sort(function(a, b){
+        return a.moment- b.moment;
+      });
+    }
+  }
+}
+
 // Store array function
 function setTaters(){
   localStorage.setItem(currentUser , JSON.stringify(Tater.daySlots));
@@ -193,6 +194,12 @@ function getUserTaters(){
       Tater.daySlots = JSON.parse(myTaters);
       for(var j = 0; j < Tater.daySlots.length; j++){
         for(var k = 0; k < Tater.daySlots[j].length; k++){
+         
+          var blahBlah = Tater.daySlots[j][k].moment;
+       
+          Tater.daySlots[j][k].moment = new Date (blahBlah);
+         
+          sortTaters();
           Tater.prototype.render();
         }
       }
@@ -222,19 +229,12 @@ function makeTestEvents() {
   new Tater('coffee' , 'go back and look for my phone' , 2018, 3, 3, 6);
   new Tater('find luca' , 'fish luca out of the river' , 2018, 3, 4, 18 );
   new Tater('Shopping' , 'Need to pick up food for week, don\'t forget the milk!!' , 2018, 3, 3, 5);
-  new Tater('Walk' , 'Make sure to walk the Dog at 9' , 2018, .3, 3, 9 );
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 4, 3 );
-  new Tater('Feed Demi' , 'Make sure pupper is fed' , 2018, 2, 4, 23);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 5, 18);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 5, 2);
-  new Tater('jail' , 'Bail out Demi, she been a bad doggo' , 2018, 2, 5, 19);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 6, 7);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 6, 5);
-  new Tater('Walk Doggo' , 'Take Demi-Dog for walk in the park' , 2018, 2, 6, 2);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 6, 18);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 6, 12);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 7, 18);
-  new Tater('jail' , 'do not pass go or collect $200' , 2018, 2, 7, 21);
+  new Tater('Walk' , 'Make sure to walk the Dog at 9' , 2018, 3, 3, 9 );
+  new Tater('jail' , 'do not pass go or collect $200' , 2018, 3, 4, 3 );
+  new Tater('Feed Demi' , 'Make sure pupper is fed' , 2018, 3, 4, 23);
+  new Tater('Walk Doggo' , 'Take Demi-Dog for walk in the park' , 2018, 3, 6, 2);
+  new Tater('jail' , 'do not pass go or collect $200' , 2018, 3, 6, 18);
+  sortTaters();
   Tater.prototype.render();
 }
 
@@ -246,7 +246,7 @@ function makeTestEvents() {
 
 function addNewEvent(event) {
   event.preventDefault();
-  console.log('log of the event.target: ', event.target);
+
   if (!event.target.eventName.value || !event.target.year.value || !event.target.month.value || !event.target.day.value || !event.target.hours.value) {
     return alert('Please enter a name, date, and hour.');
   }
@@ -260,6 +260,7 @@ function addNewEvent(event) {
   event.target.reset();
 
   new Tater(name, details, year, month, day, hours);
+  sortTaters();
   Tater.prototype.render();
   setTaters();
 }
@@ -323,3 +324,19 @@ function logoutHandler(event) {
 }
 
 logoutButton.addEventListener('click', logoutHandler);
+
+
+function welcomeUser(){
+  var myDate = new Date();
+  var hrs = myDate.getHours();
+  var greet;
+  if (hrs < 12)
+    greet = 'Good Morning';
+  else if (hrs >= 12 && hrs <= 17)
+    greet = 'Good Afternoon';
+  else if (hrs >= 17 && hrs <= 24)
+    greet = 'Good Evening';
+
+  document.getElementById('greetings').innerHTML = greet + ' ' + currentUser.charAt(0).toUpperCase() + currentUser.slice(1) + ' and welcome to your Timely';
+}
+welcomeUser(); 

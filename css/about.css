@@ -141,3 +141,17 @@ footer {
 .footer-right {
     float:right;
 }
+button#logout{
+  width: 200px;
+  height: 80px;
+  margin: 0px auto;
+  font-size: 20px;
+  background-color: blueviolet;
+  color: blanchedalmond;
+  border-radius: 15px;
+  vertical-align: middle;
+}
+button#logout:hover{
+    background-color: #1766F1;
+    border: 3px solid white;
+  }
